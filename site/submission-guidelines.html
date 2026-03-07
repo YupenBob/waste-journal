@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submission Guidelines - WASTE Journal</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="/>
+  <style>
+    :root { --color-paper: #f9f9f9; --color-charcoal: #333; --color-charcoal-light: #555; --color-accent-gold: #c5a02f; --color-science-red: #d12f2f; --color-gray-300: #e0e0e0; --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; --font-serif: "Playfair Display", "Noto Serif SC", serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--color-paper); font-family: var(--font-sans); color: var(--color-charcoal); line-height: 1.6; }
+    .chinese-serif { font-family: var(--font-serif); }
+    header { background: white; border-bottom: 4px solid var(--color-science-red); padding: 2.5rem 0; }
+    .header-content { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; text-align: center; }
+    .journal-title { font-family: var(--font-serif); font-size: 3rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-charcoal); margin-bottom: 0.5rem; }
+    .journal-subtitle { font-size: 0.75rem; color: var(--color-charcoal-light); letter-spacing: 0.15em; text-transform: uppercase; }
+    nav { background: white; border-bottom: 1px solid var(--color-gray-300); padding: 0; }
+    .nav-content { max-width: 72rem; margin: 0 auto; display: flex; justify-content: center; }
+    nav ul { list-style: none; display: flex; }
+    .nav-item { border-right: 1px solid var(--color-gray-300); padding: 0.75rem 2rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal-light); transition: color 0.2s; }
+    .nav-item:last-child { border-right: none; }
+    .nav-item:hover { color: var(--color-science-red); }
+    .nav-item.active { color: var(--color-science-red); border-bottom: 2px solid var(--color-science-red); }
+    main { max-width: 72rem; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .page-title { font-family: var(--font-serif); font-size: 2.25rem; text-align: center; margin-bottom: 3rem; color: var(--color-charcoal); font-weight: 400; }
+    .content-section { background: white; border: 1px solid var(--color-gray-300); padding: 2.5rem; margin-bottom: 2rem; }
+    .content-section h2 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--color-charcoal); font-weight: 400; border-bottom: 2px solid var(--color-gray-300); padding-bottom: 0.75rem; }
+    .content-section h3 { font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal); }
+    .content-section p { margin-bottom: 1rem; line-height: 1.8; }
+    .content-section ul, .content-section ol { margin-left: 2rem; margin-bottom: 1rem; }
+    .content-section li { margin-bottom: 0.5rem; line-height: 1.7; }
+    .step { display: flex; margin-bottom: 1.5rem; padding: 1.5rem; border: 1px solid var(--color-gray-300); background: var(--color-paper); }
+    .step-number { width: 40px; height: 40px; border-radius: 50%; background: var(--color-accent-gold); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 1.5rem; flex-shrink: 0; }
+    .step-content h4 { font-family: var(--font-serif); font-size: 1.125rem; margin-bottom: 0.5rem; }
+    .info-box { padding: 1.5rem; background: #fff8e1; border-left: 4px solid var(--color-accent-gold); margin: 1.5rem 0; }
+    .info-box strong { color: var(--color-charcoal); }
+    .cta-button { display: inline-block; background: var(--color-accent-gold); color: white; padding: 0.875rem 2.5rem; text-decoration: none; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 1rem; transition: background 0.2s; }
+    .cta-button:hover { background: #b18e26; }
+    footer { background: var(--color-charcoal); color: white; padding: 3rem 0; margin-top: 4rem; }
+    .footer-content { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .footer-section h4 { font-size: 0.75rem; margin-bottom: 1rem; letter-spacing: 0.15em; text-transform: uppercase; }
+    .footer-section p, .footer-section a { font-size: 0.875rem; color: #aaa; line-height: 2; text-decoration: none; }
+    .footer-section a:hover { color: white; }
+    .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: #888; }
+    @media (max-width: 768px) { .journal-title { font-size: 2rem; letter-spacing: 0.15em; } .nav-item { padding: 0.75rem 1rem; font-size: 0.6rem; } .step { flex-direction: column; } .step-number { margin-right: 0; margin-bottom: 1rem; } .footer-grid { grid-template-columns: 1fr; } main { padding: 2rem 1rem 3rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1 class="journal-title">WASTE</h1>
+      <p class="journal-subtitle">Worldwide Archive of Substandard Tech & Experiments</p>
+    </div>
+  </header>
+  
+  <nav>
+    <div class="nav-content">
+      <ul>
+        <li class="nav-item"><a href="index.html" style="color: inherit; text-decoration: none;">Home</a></li>
+        <li class="nav-item"><a href="about.html" style="color: inherit; text-decoration: none;">About</a></li>
+        <li class="nav-item"><a href="editorial-board.html" style="color: inherit; text-decoration: none;">Board</a></li>
+        <li class="nav-item active"><a href="submission-guidelines.html" style="color: inherit; text-decoration: none;">Submit</a></li>
+        <li class="nav-item"><a href="archive.html" style="color: inherit; text-decoration: none;">Archive</a></li>
+        <li class="nav-item"><a href="faq.html" style="color: inherit; text-decoration: none;">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main>
+    <h1 class="page-title">Submission Guidelines</h1>
+    
+    <div class="content-section">
+      <h2>Before You Submit</h2>
+      <p><strong>请确认你的研究符合以下标准：</strong></p>
+      <ul>
+        <li>✅ 实验真实存在，失败真实发生</li>
+        <li>✅ 能让后来者避免同样的坑</li>
+        <li>✅ 破防过程描述生动</li>
+        <li>✅ 能让人会心一笑</li>
+      </ul>
+      <div class="info-box">
+        <strong>⚠️ 注意：</strong> 如果你的研究过于成功，请改投其他期刊。WASTE 只收"失败"研究。
+      </div>
+    </div>
+    
+    <div class="content-section">
+      <h2>Submission Process</h2>
+      
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h4>准备稿件</h4>
+          <p><strong>格式要求：</strong></p>
+          <ul>
+            <li><strong>标题</strong>：清晰描述你的"失败"</li>
+            <li><strong>摘要</strong>：200-300 字，说明问题、方法、（失败的）结果</li>
+            <li><strong>引言</strong>：为什么你觉得这个研究有意义</li>
+            <li><strong>方法</strong>：你具体做了什么</li>
+            <li><strong>结果</strong>：实际发生了什么（越离谱越好）</li>
+            <li><strong>破防过程</strong>：从自信到怀疑人生的心路历程</li>
+            <li><strong>结论</strong>：你学到了什么（或者没学到）</li>
+            <li><strong>参考文献</strong>：任何对你有启发（或误导）的资料</li>
+          </ul>
+          <p style="margin-top: 1rem;"><strong>接受格式：</strong>LaTeX / Word / Markdown / 手写拍照（只要能看清）</p>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h4>发送邮件</h4>
+          <p><strong>收件人：</strong>waste-journal@example.com</p>
+          <p><strong>邮件标题：</strong>【WASTE 投稿】+ 你的论文标题</p>
+          <p><strong>邮件正文：</strong></p>
+          <ul>
+            <li>作者姓名（或笔名）</li>
+            <li>联系方式（邮箱即可）</li>
+            <li>投稿版块（薛定谔的报错/琥珀档案室/当代废料艺术/算力黑洞）</li>
+            <li>一句话总结你的"失败"</li>
+          </ul>
+          <p><strong>附件：</strong>论文文件（PDF 优先）+ 补充材料（可选）</p>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h4>等待评审</h4>
+          <p><strong>审稿周期：</strong>7-14 个工作日（实际取决于主编当天喝了几杯咖啡）</p>
+          <p><strong>评审结果：</strong></p>
+          <ul>
+            <li>✅ <strong>Accept</strong>：恭喜！你的"失败"被认可了</li>
+            <li>🔄 <strong>Revise</strong>：需要补充更多"破防细节"</li>
+            <li>❌ <strong>Reject</strong>：你的失败还不够有教育意义（或不够好笑）</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h4>支付版面费</h4>
+          <p><strong>APC（Article Processing Charge）：</strong></p>
+          <p>本刊<strong>不收现金</strong>。接受以下支付方式：</p>
+          <ul>
+            <li>一卷没用完的 3D 打印耗材</li>
+            <li>一段能跑但没用的 Python 代码</li>
+            <li>帮主编给服务器拉根网线</li>
+            <li>一封真诚的感谢信</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h4>发表</h4>
+          <p>论文将在 WASTE Journal 网站发表，分配 DOI 号，进入永久存档。</p>
+          <p><strong>注意：</strong>一旦发表，你的"失败"将成为人类知识的一部分，被后人引用（或嘲笑）。</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-section">
+      <h2>Template</h2>
+      <p>我们提供 LaTeX 和 Word 模板，帮助你格式化论文。</p>
+      <p style="margin-top: 1rem;">
+        <a href="template.html" class="cta-button">View Template</a>
+      </p>
+    </div>
+    
+    <div class="content-section">
+      <h2>Ethics</h2>
+      <p><strong>学术诚信：</strong></p>
+      <ul>
+        <li>研究必须真实，不得伪造数据</li>
+        <li>可以夸张描述，但不能无中生有</li>
+        <li>引用他人"失败"需注明出处</li>
+      </ul>
+      <p><strong>一稿多投：</strong></p>
+      <ul>
+        <li>允许一稿多投（反正大概率被拒）</li>
+        <li>但如果被 WASTE 录用了，请第一时间通知我们</li>
+      </ul>
+    </div>
+    
+    <div class="content-section">
+      <h2>Questions?</h2>
+      <p>如有任何问题，请发送邮件至 <strong>waste-journal@example.com</strong></p>
+      <p>或在 GitHub 仓库提交 Issue：https://github.com/YupenBob/waste-journal</p>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>Email: waste-journal@example.com</p>
+          <p>GitHub: @YupenBob/waste-journal</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <p><a href="template.html">Template</a></p>
+          <p><a href="faq.html">FAQ</a></p>
+          <p><a href="https://github.com/YupenBob/waste-journal">GitHub Repository</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>License</h4>
+          <p>Code: MIT</p>
+          <p>Content: CC BY-NC-SA 4.0</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 WASTE Journal — York, Editor-in-Chief</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
