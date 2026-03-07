@@ -1,8 +1,9 @@
-name: 🗑️ Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, master]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -18,37 +19,33 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 📥 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
       
-      - name: 📁 Setup Pages
+      - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
       
-      - name: 🏗️ Build
+      - name: Build
         run: |
-          # WASTE 是纯静态网站，直接复制 site 目录
           mkdir -p public
           if [ -d "site" ]; then
             cp -r site/* public/
-          else
-            cp *.html *.css *.js *.png *.jpg public/ 2>/dev/null || true
           fi
-          echo "✅ Build complete"
-          ls -lh public/
+          ls -la public/
       
-      - name: 📤 Upload artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
   
   deploy:
-    needs: build
-    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
     steps:
-      - name: 🚀 Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
