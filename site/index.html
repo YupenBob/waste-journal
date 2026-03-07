@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUBBISH - 国际学术期刊</title>
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --bg-color: #1a1a2e;
+            --text-color: #eee;
+            --card-bg: #16213e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bg-color) 0%, #0f3460 100%);
+            color: var(--text-color);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--primary-color), #ff8e53);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+        
+        .logo {
+            font-size: 5rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .slogan {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-top: 20px;
+            color: #fff;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 12px 24px;
+            background: var(--card-bg);
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        nav a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* Sections */
+        section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        
+        /* Call for Papers */
+        .cfp-box {
+            background: linear-gradient(135deg, var(--secondary-color), #45b7d1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .cfp-box h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* Sections Grid */
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .section-card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+        
+        .section-card:hover {
+            transform: translateX(10px);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .section-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            border-top: 2px solid var(--primary-color);
+            opacity: 0.8;
+        }
+        
+        .emoji {
+            font-size: 1.5rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .slogan {
+                font-size: 1.2rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">🗑️ RUBBISH</div>
+            <div class="subtitle">Research Upon Bizarre & Borderline Incomprehensible Scientific Hypotheses</div>
+            <div class="slogan">"Turning Academic Trash into Treasure" <br> 变废为宝，学术拾荒</div>
+        </header>
+        
+        <!-- Navigation -->
+        <nav>
+            <a href="#cfp">📢 征稿启事</a>
+            <a href="#sections">📚 核心版块</a>
+            <a href="#review">🎲 评审机制</a>
+            <a href="#submit">✍️ 在线投稿</a>
+            <a href="#about">ℹ️ 关于我们</a>
+        </nav>
+        
+        <!-- Call for Papers -->
+        <section id="cfp">
+            <h2>📢 创刊号征稿启事</h2>
+            <div class="cfp-box">
+                <h3>🎭 愚人节特辑 - 全球征稿启动！</h3>
+                <p><strong>截稿日期</strong>：2026 年 3 月 31 日（愚人节前夕）</p>
+                <p><strong>创刊日期</strong>：2026 年 4 月 1 日</p>
+                <p><strong>版面费</strong>：支持实验室剩试剂、导师签名照、当地特产抵扣</p>
+                <a href="#submit" class="btn">🚀 立即投稿</a>
+            </div>
+            <p>本刊致力于收录全宇宙被主流期刊无情拒绝的、毫无实用价值的、实验完全失败的，以及脑洞大到女娲都补不上的学术论文。我们坚信，每一篇"垃圾"论文，都有其独特的喜剧价值。</p>
+            <p><strong>您被拒稿的终点，就是我们发表的起点。</strong></p>
+        </section>
+        
+        <!-- Core Sections -->
+        <section id="sections">
+            <h2>📚 核心版块</h2>
+            <div class="sections-grid">
+                <div class="section-card">
+                    <h3>🤷 我也不知道为什么会这样</h3>
+                    <p>专门发表那些实验结果与预期完全相反，且作者本人也无法解释的玄学现象。</p>
+                </div>
+                <div class="section-card">
+                    <h3>🙏 花式致谢</h3>
+                    <p>论文不重要，重要的是在致谢里感谢自己的猫、楼下的外卖小哥，或者痛骂前任导师。</p>
+                </div>
+                <div class="section-card">
+                    <h3>💔 被拒理由大赏</h3>
+                    <p>作者可以将主流期刊的拒稿信原文附上，我们将评选出每期"最恶毒拒稿信"，并颁发"学术小强奖"。</p>
+                </div>
+                <div class="section-card">
+                    <h3>❌ 零阳性结果报告</h3>
+                    <p>严谨地证明"这东西真的一点用都没有"，为全人类排雷。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Review Process -->
+        <section id="review">
+            <h2>🎲 颠覆性评审机制</h2>
+            <p>我们坚决摒弃传统的双盲评审（Double-blind），采用独创的评审方式：</p>
+            <div class="sections-grid">
+                <div class="section-card">
+                    <h3>🎯 盲盒评审</h3>
+                    <p>审稿人不看内容，通过扔飞镖或掷骰子决定是否录用（致敬某些其实也是这么干的主流水刊）。</p>
+                </div>
+                <div class="section-card">
+                    <h3>😂 情绪价值评审</h3>
+                    <p>论文的录用标准取决于它能让主编笑出多大声。如果论文足够枯燥，将被要求缴纳"精神损失费"。</p>
+                </div>
+                <div class="section-card">
+                    <h3>🍻 双醉评审</h3>
+                    <p>审稿人和作者在酒吧见面，喝到微醺后讨论论文，双方都满意就录用。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Submit -->
+        <section id="submit">
+            <h2>✍️ 在线投稿</h2>
+            <p>准备好您的"垃圾"论文了吗？立即投稿，成为 RUBBISH 创刊号的荣誉作者！</p>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="mailto:rubbish-journal@example.com" class="btn">📧 发送邮件投稿</a>
+                <p style="margin-top: 20px; opacity: 0.7;">或发送至：rubbish-journal@example.com</p>
+            </div>
+            <h3 style="margin-top: 30px;">📝 投稿要求</h3>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>论文必须曾被至少一个主流期刊拒稿（附拒稿信加分）</li>
+                <li>实验结果越离谱越好</li>
+                <li>致谢部分必须有创意</li>
+                <li>接受 LaTeX、Word、甚至手写拍照</li>
+            </ul>
+        </section>
+        
+        <!-- About -->
+        <section id="about">
+            <h2>ℹ️ 关于我们</h2>
+            <p><strong>RUBBISH</strong> 是一本讽刺性反常规学术期刊，由一群被学术界毒打过的博士生创办。</p>
+            <p>我们的目标不是改变世界，而是改变读者的心情。在这个内卷的时代，不是每篇论文都能改变世界，但至少，你的论文可以改变读者的心情。</p>
+            <h3 style="margin-top: 20px;">🎯 目标受众</h3>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>常年被"审稿人 2 号 (Reviewer #2)"折磨到精神衰弱的科研工作者</li>
+                <li>搞笑诺贝尔奖 (Ig Nobel Prize) 的潜在候选人及狂热粉丝</li>
+                <li>需要找点乐子来缓解发际线后移焦虑的硕博研究生</li>
+            </ul>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <p>🗑️ RUBBISH Journal © 2026 | "I published in RUBBISH" - 学术垃圾的荣耀</p>
+            <p style="margin-top: 10px;">
+                <span class="emoji">🐱</span> 感谢所有审稿人的猫 <span class="emoji">🍕</span> 感谢外卖小哥 <span class="emoji">🎓</span> 感谢不杀之恩的导师
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Fun fact: Random academic trash generator
+        console.log('%c🗑️ Welcome to RUBBISH Journal!', 'font-size: 20px; color: #ff6b6b;');
+        console.log('%c"Your rejected paper is our treasure!"', 'font-size: 14px; color: #4ecdc4;');
+    </script>
+</body>
+</html>
