@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - WASTE Journal</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="/>
+  <style>
+    :root { --color-paper: #f9f9f9; --color-charcoal: #333; --color-charcoal-light: #555; --color-accent-gold: #c5a02f; --color-science-red: #d12f2f; --color-gray-300: #e0e0e0; --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; --font-serif: "Playfair Display", "Noto Serif SC", serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--color-paper); font-family: var(--font-sans); color: var(--color-charcoal); line-height: 1.6; }
+    .chinese-serif { font-family: var(--font-serif); }
+    header { background: white; border-bottom: 4px solid var(--color-science-red); padding: 2.5rem 0; }
+    .header-content { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; text-align: center; }
+    .journal-title { font-family: var(--font-serif); font-size: 3rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-charcoal); margin-bottom: 0.5rem; }
+    .journal-subtitle { font-size: 0.75rem; color: var(--color-charcoal-light); letter-spacing: 0.15em; text-transform: uppercase; }
+    nav { background: white; border-bottom: 1px solid var(--color-gray-300); padding: 0; }
+    .nav-content { max-width: 72rem; margin: 0 auto; display: flex; justify-content: center; }
+    nav ul { list-style: none; display: flex; }
+    .nav-item { border-right: 1px solid var(--color-gray-300); padding: 0.75rem 2rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal-light); transition: color 0.2s; }
+    .nav-item:last-child { border-right: none; }
+    .nav-item:hover { color: var(--color-science-red); }
+    .nav-item.active { color: var(--color-science-red); border-bottom: 2px solid var(--color-science-red); }
+    main { max-width: 72rem; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .page-title { font-family: var(--font-serif); font-size: 2.25rem; text-align: center; margin-bottom: 3rem; color: var(--color-charcoal); font-weight: 400; }
+    .faq-section { background: white; border: 1px solid var(--color-gray-300); padding: 2.5rem; margin-bottom: 2rem; }
+    .faq-section h2 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--color-charcoal); font-weight: 400; border-bottom: 2px solid var(--color-gray-300); padding-bottom: 0.75rem; }
+    .faq-item { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-gray-300); }
+    .faq-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .faq-question { font-size: 1.125rem; font-weight: 600; color: var(--color-charcoal); margin-bottom: 0.75rem; display: flex; align-items: flex-start; }
+    .faq-question::before { content: "Q:"; color: var(--color-accent-gold); font-weight: 700; margin-right: 0.75rem; flex-shrink: 0; }
+    .faq-answer { margin-left: 2.5rem; line-height: 1.8; }
+    .faq-answer::before { content: "A:"; color: var(--color-charcoal-light); font-weight: 600; margin-right: 0.5rem; }
+    footer { background: var(--color-charcoal); color: white; padding: 3rem 0; margin-top: 4rem; }
+    .footer-content { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .footer-section h4 { font-size: 0.75rem; margin-bottom: 1rem; letter-spacing: 0.15em; text-transform: uppercase; }
+    .footer-section p, .footer-section a { font-size: 0.875rem; color: #aaa; line-height: 2; text-decoration: none; }
+    .footer-section a:hover { color: white; }
+    .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: #888; }
+    @media (max-width: 768px) { .journal-title { font-size: 2rem; letter-spacing: 0.15em; } .nav-item { padding: 0.75rem 1rem; font-size: 0.6rem; } .faq-question { flex-direction: column; } .faq-question::before { margin-bottom: 0.5rem; } .faq-answer { margin-left: 0; } .footer-grid { grid-template-columns: 1fr; } main { padding: 2rem 1rem 3rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1 class="journal-title">WASTE</h1>
+      <p class="journal-subtitle">Worldwide Archive of Substandard Tech & Experiments</p>
+    </div>
+  </header>
+  
+  <nav>
+    <div class="nav-content">
+      <ul>
+        <li class="nav-item"><a href="index.html" style="color: inherit; text-decoration: none;">Home</a></li>
+        <li class="nav-item"><a href="about.html" style="color: inherit; text-decoration: none;">About</a></li>
+        <li class="nav-item"><a href="editorial-board.html" style="color: inherit; text-decoration: none;">Board</a></li>
+        <li class="nav-item"><a href="submission-guidelines.html" style="color: inherit; text-decoration: none;">Submit</a></li>
+        <li class="nav-item"><a href="archive.html" style="color: inherit; text-decoration: none;">Archive</a></li>
+        <li class="nav-item active"><a href="faq.html" style="color: inherit; text-decoration: none;">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main>
+    <h1 class="page-title">Frequently Asked Questions</h1>
+    
+    <div class="faq-section">
+      <h2>General Questions</h2>
+      
+      <div class="faq-item">
+        <p class="faq-question">WASTE Journal 是正经期刊吗？</p>
+        <p class="faq-answer">这取决于你对"正经"的定义。我们有 ISSN（申请中）、有编委会（看心情）、有评审流程（随机）。但从内容上来说……可能不太正经。</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">为什么叫 WASTE？</p>
+        <p class="faq-answer">WASTE = Worldwide Archive of Substandard Tech & Experiments（全球次品技术与实验档案馆）。同时也暗示这些研究在主流期刊眼里是"废料"。</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">发表日期为什么是 4 月 1 日？</p>
+        <p class="faq-answer">因为这是最适合"失败研究"的日子——愚人节。但我们的内容是认真的，只是用幽默的方式呈现。</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">这本期刊真的有用吗？</p>
+        <p class="faq-answer">有用。至少能让你在踩坑前知道这个坑存在，或者在踩坑后知道自己不是一个人。</p>
+      </div>
+    </div>
+    
+    <div class="faq-section">
+      <h2>Submission Questions</h2>
+      
+      <div class="faq-item">
+        <p class="faq-question">什么样的研究可以投稿？</p>
+        <p class="faq-answer">"失败"的研究。代码跑不起来、实验没得到预期结果、硬件翻车、算力浪费……只要是真实的、有教育意义的、最好还能让人会心一笑的，都欢迎。</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">成功的研可以投吗？</p>
+        <p class="faq-answer">不可以。请改投其他期刊。WASTE 只收"失败"研究。</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">可以用 LaTeX 吗？</p>
+        <p class="faq-answer">可以。我们也接受 Word、Markdown、甚至手写拍照。格式不重要，内容重要。</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">版面费多少钱？</p>
+        <p class="faq-answer">不收现金。接受 3D 打印耗材、无用代码、帮主编拉网线、或者一封感谢信。</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">审稿周期多久？</p>
+        <p class="faq-answer">官方说法是 7-14 个工作日。实际时长取决于主编当天喝了几杯咖啡、天气如何、以及月球相位。</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">可以一稿多投吗？</p>
+        <p class="faq-answer">可以。反正大概率被拒，多投几个地方正常。但如果被 WASTE 录用了，请第一时间通知我们。</p>
+      </div>
+    </div>
+    
+    <div class="faq-section">
+      <h2>Review Questions</h2>
+      
+      <div class="faq-item">
+        <p class="faq-question">评审标准是什么？</p>
+        <p class="faq-answer">真实性（实验必须真实）、教育意义（能让后来者避坑）、故事性（破防过程要生动）、幽默感（能让人会心一笑）。</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">评审是双盲吗？</p>
+        <p class="faq-answer">理论上是。作者不知道审稿人是谁，审稿人……其实主编看心情决定要不要匿名。</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">被拒稿可以申诉吗？</p>
+        <p class="faq-answer">可以。发邮件说明理由，主编会重新考虑。但如果拒稿理由是"你的失败还不够有趣"，申诉成功率较低。</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">录用后需要修改吗？</p>
+        <p class="faq-answer">可能需要。常见修改意见：补充更多破防细节、增加幽默元素、或者解释为什么这个坑值得记录。</p>
+      </div>
+    </div>
+    
+    <div class="faq-section">
+      <h2>Other Questions</h2>
+      
+      <div class="faq-item">
+        <p class="faq-question">可以加入编委会吗？</p>
+        <p class="faq-answer">可以。发邮件申请，附上你的"失败简历"。我们需要对某个版块有深入研究（=踩过很多坑）的人。</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">如何引用 WASTE 的论文？</p>
+        <p class="faq-answer">标准引用格式：作者。"论文标题。"WASTE Journal, vol. 1, no. 1, 2026, doi:10.waste/xxxx.xxxx</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">还有其他问题怎么办？</p>
+        <p class="faq-answer">发邮件到 waste-journal@example.com，或在 GitHub 仓库提 Issue。</p>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>Email: waste-journal@example.com</p>
+          <p>GitHub: @YupenBob/waste-journal</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <p><a href="submission-guidelines.html">Submission Guidelines</a></p>
+          <p><a href="about.html">About</a></p>
+          <p><a href="https://github.com/YupenBob/waste-journal">GitHub Repository</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>License</h4>
+          <p>Code: MIT</p>
+          <p>Content: CC BY-NC-SA 4.0</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 WASTE Journal — York, Editor-in-Chief</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
