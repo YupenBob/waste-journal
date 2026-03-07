@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template - WASTE Journal</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="/>
+  <style>
+    :root { --color-paper: #f9f9f9; --color-charcoal: #333; --color-charcoal-light: #555; --color-accent-gold: #c5a02f; --color-science-red: #d12f2f; --color-gray-300: #e0e0e0; --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; --font-serif: "Playfair Display", "Noto Serif SC", serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--color-paper); font-family: var(--font-sans); color: var(--color-charcoal); line-height: 1.6; }
+    .chinese-serif { font-family: var(--font-serif); }
+    header { background: white; border-bottom: 4px solid var(--color-science-red); padding: 2.5rem 0; }
+    .header-content { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; text-align: center; }
+    .journal-title { font-family: var(--font-serif); font-size: 3rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-charcoal); margin-bottom: 0.5rem; }
+    .journal-subtitle { font-size: 0.75rem; color: var(--color-charcoal-light); letter-spacing: 0.15em; text-transform: uppercase; }
+    nav { background: white; border-bottom: 1px solid var(--color-gray-300); padding: 0; }
+    .nav-content { max-width: 72rem; margin: 0 auto; display: flex; justify-content: center; }
+    nav ul { list-style: none; display: flex; }
+    .nav-item { border-right: 1px solid var(--color-gray-300); padding: 0.75rem 2rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal-light); transition: color 0.2s; }
+    .nav-item:last-child { border-right: none; }
+    .nav-item:hover { color: var(--color-science-red); }
+    .nav-item.active { color: var(--color-science-red); border-bottom: 2px solid var(--color-science-red); }
+    main { max-width: 72rem; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .page-title { font-family: var(--font-serif); font-size: 2.25rem; text-align: center; margin-bottom: 3rem; color: var(--color-charcoal); font-weight: 400; }
+    .content-section { background: white; border: 1px solid var(--color-gray-300); padding: 2.5rem; margin-bottom: 2rem; }
+    .content-section h2 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--color-charcoal); font-weight: 400; border-bottom: 2px solid var(--color-gray-300); padding-bottom: 0.75rem; }
+    .content-section p { margin-bottom: 1rem; line-height: 1.8; }
+    .template-box { background: #f5f5f5; border: 1px solid var(--color-gray-300); padding: 1.5rem; margin: 1.5rem 0; font-family: "Courier New", monospace; font-size: 0.85rem; overflow-x: auto; }
+    .cta-button { display: inline-block; background: var(--color-accent-gold); color: white; padding: 0.875rem 2.5rem; text-decoration: none; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 1rem; transition: background 0.2s; }
+    .cta-button:hover { background: #b18e26; }
+    footer { background: var(--color-charcoal); color: white; padding: 3rem 0; margin-top: 4rem; }
+    .footer-content { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .footer-section h4 { font-size: 0.75rem; margin-bottom: 1rem; letter-spacing: 0.15em; text-transform: uppercase; }
+    .footer-section p, .footer-section a { font-size: 0.875rem; color: #aaa; line-height: 2; text-decoration: none; }
+    .footer-section a:hover { color: white; }
+    .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: #888; }
+    @media (max-width: 768px) { .journal-title { font-size: 2rem; letter-spacing: 0.15em; } .nav-item { padding: 0.75rem 1rem; font-size: 0.6rem; } .footer-grid { grid-template-columns: 1fr; } main { padding: 2rem 1rem 3rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1 class="journal-title">WASTE</h1>
+      <p class="journal-subtitle">Worldwide Archive of Substandard Tech & Experiments</p>
+    </div>
+  </header>
+  
+  <nav>
+    <div class="nav-content">
+      <ul>
+        <li class="nav-item"><a href="index.html" style="color: inherit; text-decoration: none;">Home</a></li>
+        <li class="nav-item"><a href="about.html" style="color: inherit; text-decoration: none;">About</a></li>
+        <li class="nav-item"><a href="editorial-board.html" style="color: inherit; text-decoration: none;">Board</a></li>
+        <li class="nav-item"><a href="submission-guidelines.html" style="color: inherit; text-decoration: none;">Submit</a></li>
+        <li class="nav-item"><a href="archive.html" style="color: inherit; text-decoration: none;">Archive</a></li>
+        <li class="nav-item"><a href="faq.html" style="color: inherit; text-decoration: none;">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main>
+    <h1 class="page-title">Paper Template</h1>
+    
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>WASTE Journal 接受多种格式的投稿：LaTeX、Word、Markdown、甚至手写拍照。以下是推荐的论文结构。</p>
+      <p><strong>注意：</strong>格式不是必须的，只要内容清晰即可。但使用模板会让审稿人心情更好（→录用率更高）。</p>
+    </div>
+    
+    <div class="content-section">
+      <h2>Structure</h2>
+      
+      <div class="template-box">
+<strong>Title</strong>: [你的论文标题 - 清晰描述"失败"]
+
+<strong>Authors</strong>: [作者姓名]
+<strong>Email</strong>: [联系邮箱]
+
+<strong>Abstract</strong>: 
+[200-300 字摘要，说明问题、方法、（失败的）结果]
+
+<strong>Keywords</strong>: [3-5 个关键词]
+
+---
+
+<strong>1. Introduction</strong>
+- 研究背景：为什么你觉得这个问题值得研究
+- 动机：是什么让你觉得"这个应该能成"
+- 预期：你原本期望得到什么结果
+
+<strong>2. Related Work</strong>
+- 任何对你有启发（或误导）的资料
+- 前人是否也踩过类似的坑
+
+<strong>3. Methodology</strong>
+- 你具体做了什么
+- 使用了什么工具/技术/方法
+- 实验设计（如果有的话）
+
+<strong>4. Results</strong>
+- 实际发生了什么
+- 与预期的差距
+- 越离谱越好
+
+<strong>5. The Breakdown (破防过程)</strong> ⭐ 核心部分
+- 从自信到怀疑人生的心路历程
+- 关键转折点（"等等，这不对吧？"的时刻）
+- 最终接受现实的心理建设
+
+<strong>6. Discussion</strong>
+- 为什么会失败
+- 可能的原因分析
+- 如果重来一次会怎么做
+
+<strong>7. Conclusion</strong>
+- 你学到了什么（或者没学到）
+- 对后来者的建议
+- 这个坑的价值
+
+<strong>References</strong>
+[任何引用或参考的资料]
+
+<strong>Acknowledgements</strong>
+[感谢那些在你失败路上帮助（或嘲笑）过你的人]
+
+<strong>Appendix</strong> (可选)
+- 补充材料
+- 完整代码链接
+- 更多截图/日志
+      </div>
+    </div>
+    
+    <div class="content-section">
+      <h2>Example: Title & Abstract</h2>
+      
+      <div class="template-box">
+<strong>Title</strong>: 
+"Works on My Machine": A Case Study of Environment-Dependent 
+Behavior in Python Dependency Resolution
+
+<strong>Abstract</strong>: 
+本文记录了一次为期两周的调试经历，起因是一个简单的 
+Python 脚本在本地运行完美，但在服务器上连续失败 47 次。
+通过系统性的排除法，我们最终发现问题根源是一个 
+transitive dependency 的 transitive dependency 在某个 
+特定版本的特定平台上引入了一个条件性 bug。本研究的主要
+贡献是证明了"在我机器上能跑"不是一个有效的学术论点，
+以及展示了如何用三天时间 debug 一个本该五分钟解决的问题。
+      </div>
+    </div>
+    
+    <div class="content-section">
+      <h2>Formatting Guidelines</h2>
+      
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem;">LaTeX</h3>
+      <p>我们提供 LaTeX 模板。使用标准文章类即可，不需要特殊格式。</p>
+      <div class="template-box">
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+\title{Your Paper Title}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Your abstract here...
+\end{abstract}
+% Your content here
+\end{document}
+      </div>
+      
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem;">Word / Google Docs</h3>
+      <p>使用标准 A4 页面，12pt 字体，1.5 倍行距。标题加粗，章节编号清晰。</p>
+      
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem;">Markdown</h3>
+      <p>使用标准 Markdown 语法。导出为 PDF 后提交。</p>
+      
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem;">Handwritten</h3>
+      <p>是的，手写也可以。拍照或扫描，确保清晰可读。字迹潦草可能会被拒（主编看不懂）。</p>
+    </div>
+    
+    <div class="content-section">
+      <h2>Submission Checklist</h2>
+      <ul style="margin-left: 2rem;">
+        <li>☐ 标题清晰描述"失败"</li>
+        <li>☐ 摘要 200-300 字</li>
+        <li>☐ 包含破防过程描述</li>
+        <li>☐ 有教育意义（能让后来者避坑）</li>
+        <li>☐ 有幽默感（能让人会心一笑）</li>
+        <li>☐ 参考文献（如果有的话）</li>
+        <li>☐ 联系方式（邮箱）</li>
+      </ul>
+    </div>
+    
+    <div class="content-section">
+      <h2>Download Templates</h2>
+      <p>模板文件将在 GitHub 仓库提供。</p>
+      <p style="margin-top: 1rem;">
+        <a href="https://github.com/YupenBob/waste-journal" class="cta-button" target="_blank">View on GitHub</a>
+      </p>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>Email: waste-journal@example.com</p>
+          <p>GitHub: @YupenBob/waste-journal</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <p><a href="submission-guidelines.html">Submission Guidelines</a></p>
+          <p><a href="faq.html">FAQ</a></p>
+          <p><a href="https://github.com/YupenBob/waste-journal">GitHub Repository</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>License</h4>
+          <p>Code: MIT</p>
+          <p>Content: CC BY-NC-SA 4.0</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 WASTE Journal — York, Editor-in-Chief</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
