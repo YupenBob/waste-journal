@@ -1,566 +1,406 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WASTE Journal - 全球不达标技术与实验档案馆 🗑️</title>
-    <meta name="description" content="WASTE - Worldwide Archive of Substandard Tech & Experiments. 留存无用，存档荒诞。">
-    <style>
-        :root {
-            --primary-color: #2ecc71;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --bg-color: #0f0f23;
-            --text-color: #e0e0e0;
-            --card-bg: #1a1a2e;
-            --border-color: #2a2a3e;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Courier New', 'Consolas', monospace;
-            background: linear-gradient(135deg, var(--bg-color) 0%, #1a1a2e 100%);
-            color: var(--text-color);
-            min-height: 100vh;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(0, 255, 0, 0.03) 2px,
-                    rgba(0, 255, 0, 0.03) 4px
-                );
-            pointer-events: none;
-            z-index: 1000;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Glitch Header */
-        header {
-            text-align: center;
-            padding: 80px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .logo {
-            font-size: 6rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-shadow: 
-                2px 2px 0px var(--accent-color),
-                -2px -2px 0px var(--secondary-color);
-            animation: glitch 2s infinite;
-            position: relative;
-        }
-        
-        @keyframes glitch {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-        }
-        
-        .subtitle {
-            font-size: 1.3rem;
-            margin-top: 20px;
-            color: var(--secondary-color);
-            font-family: monospace;
-        }
-        
-        .slogan {
-            font-size: 1.8rem;
-            font-style: italic;
-            margin-top: 30px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            margin-top: 15px;
-            opacity: 0.8;
-            font-family: monospace;
-        }
-        
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
-        
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 12px 24px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            transition: all 0.3s;
-            font-family: monospace;
-        }
-        
-        nav a:hover {
-            background: var(--primary-color);
-            color: var(--bg-color);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
-        }
-        
-        /* Sections */
-        section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        h2 {
-            color: var(--primary-color);
-            margin-bottom: 25px;
-            font-size: 2rem;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 15px;
-            font-family: monospace;
-        }
-        
-        h2::before {
-            content: '>';
-            margin-right: 10px;
-            color: var(--accent-color);
-        }
-        
-        /* CFP Box */
-        .cfp-box {
-            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(52, 152, 219, 0.1));
-            border: 2px solid var(--primary-color);
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            margin: 30px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cfp-box::before {
-            content: '⚠️';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 10rem;
-            opacity: 0.1;
-        }
-        
-        .cfp-box h3 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            font-family: monospace;
-        }
-        
-        .cfp-box p {
-            font-size: 1.1rem;
-            margin: 10px 0;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--bg-color);
-            padding: 15px 35px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 25px;
-            transition: all 0.3s;
-            font-family: monospace;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(46, 204, 113, 0.5);
-        }
-        
-        /* Sections Grid */
-        .sections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .section-card {
-            background: rgba(255,255,255,0.05);
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary-color);
-            transition: all 0.3s;
-        }
-        
-        .section-card:hover {
-            transform: translateX(10px);
-            background: rgba(46, 204, 113, 0.1);
-            border-left-color: var(--accent-color);
-        }
-        
-        .section-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            font-family: monospace;
-        }
-        
-        .section-card p {
-            opacity: 0.9;
-            line-height: 1.8;
-        }
-        
-        .section-card .emoji {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        /* Terminal Style */
-        .terminal {
-            background: #000;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            font-family: 'Courier New', monospace;
-            margin: 20px 0;
-            overflow-x: auto;
-        }
-        
-        .terminal-line {
-            margin: 5px 0;
-        }
-        
-        .terminal-line::before {
-            content: '$ ';
-            color: var(--primary-color);
-        }
-        
-        .terminal-output {
-            color: #888;
-        }
-        
-        .terminal-output::before {
-            content: '';
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            margin-top: 50px;
-            border-top: 2px solid var(--border-color);
-            opacity: 0.7;
-            font-family: monospace;
-        }
-        
-        .footer-emoji {
-            font-size: 2rem;
-            margin: 10px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 3.5rem;
-            }
-            
-            .slogan {
-                font-size: 1.3rem;
-            }
-            
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            section {
-                padding: 25px;
-            }
-        }
-        
-        /* Blinking Cursor */
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 1.5em;
-            background: var(--primary-color);
-            animation: blink 1s infinite;
-            vertical-align: text-bottom;
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WASTE Journal - Worldwide Archive of Substandard Tech & Experiments</title>
+  <style>
+    :root {
+      --primary: #1a1a2e;
+      --accent: #c44536;
+      --bg: #fafafa;
+      --text: #333;
+      --border: #e0e0e0;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    /* Header */
+    header {
+      background: white;
+      border-bottom: 3px solid var(--accent);
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+    }
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .journal-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+    
+    .journal-subtitle {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.5rem;
+      font-family: "Georgia", serif;
+      font-style: italic;
+    }
+    
+    .journal-meta {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #888;
+    }
+    
+    .journal-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    /* Navigation */
+    nav {
+      background: var(--primary);
+      padding: 0.75rem 0;
+    }
+    
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    
+    nav a:hover {
+      opacity: 0.8;
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 3rem;
+      margin-bottom: 2rem;
+      border-radius: 4px;
+    }
+    
+    .hero h2 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-family: "Georgia", serif;
+    }
+    
+    .hero p {
+      color: #555;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: background 0.2s;
+    }
+    
+    .cta-button:hover {
+      background: #a8372a;
+    }
+    
+    /* Sections Grid */
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .section-card {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: 4px;
+      transition: box-shadow 0.2s;
+    }
+    
+    .section-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .section-card h3 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      font-family: "Georgia", serif;
+    }
+    
+    .section-card p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    
+    .section-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* Latest Papers */
+    .latest-papers {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: 4px;
+    }
+    
+    .latest-papers h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border);
+      font-family: "Georgia", serif;
+    }
+    
+    .paper-item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .paper-item:last-child {
+      border-bottom: none;
+    }
+    
+    .paper-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .paper-authors {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    
+    .paper-meta {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: #888;
+    }
+    
+    .paper-doi {
+      font-family: "Courier New", monospace;
+      background: #f5f5f5;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 3rem 0;
+      margin-top: 4rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-section h4 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+    
+    .footer-section p, .footer-section a {
+      font-size: 0.9rem;
+      color: #aaa;
+      line-height: 1.8;
+      text-decoration: none;
+    }
+    
+    .footer-section a:hover {
+      color: white;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem;
+      color: #888;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .journal-title { font-size: 1.8rem; }
+      .journal-meta { flex-wrap: wrap; gap: 1rem; }
+      nav ul { gap: 1rem; }
+      main { padding: 0 1rem 2rem; }
+      .hero { padding: 2rem 1.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="logo">🗑️ WASTE</div>
-            <div class="subtitle">Worldwide Archive of Substandard Tech & Experiments</div>
-            <div class="slogan">"Conserve the Useless, Archive the Absurd."</div>
-            <div class="tagline">留存无用，存档荒诞<span class="cursor"></span></div>
-        </header>
-        
-        <!-- Navigation -->
-        <nav>
-            <a href="#cfp">📢 创刊征稿</a>
-            <a href="#sections">📚 核心版块</a>
-            <a href="#review">🎲 评审机制</a>
-            <a href="#apc">💰 版面费</a>
-            <a href="#submit">✍️ 在线投稿</a>
-            <a href="#about">ℹ️ 关于我们</a>
-        </nav>
-        
-        <!-- Call for Papers -->
-        <section id="cfp">
-            <h2>📢 创刊号全球征稿</h2>
-            <div class="cfp-box">
-                <h3>🎭 愚人节特辑 - 废件狂欢</h3>
-                <p><strong>截稿日期</strong>：2026 年 3 月 31 日（愚人节前夕）</p>
-                <p><strong>创刊发布</strong>：2026 年 4 月 1 日</p>
-                <p><strong>版面费</strong>：一卷 3D 打印耗材 / 一段废弃代码 / 帮拉网线</p>
-                <a href="#submit" class="btn">🚀 立即投稿</a>
-            </div>
-            
-            <div class="terminal">
-                <div class="terminal-line">echo "你的废件，人类的底线" | waste submit</div>
-                <div class="terminal-output">✅ 投稿成功！您的学术垃圾已被归档。</div>
-                <div class="terminal-output">🗑️ WASTE Journal 感谢您的贡献。</div>
-            </div>
-            
-            <p>本刊致力于收录全宇宙被主流期刊无情拒绝的、毫无实用价值的、实验完全失败的，以及脑洞大到女娲都补不上的学术论文。</p>
-            <p><strong>我们坚信：即使是报错的代码、失败的打印件、或者古早互联网上无人问津的水贴，只要包装得当，都能成为闪耀的学术垃圾。</strong></p>
-        </section>
-        
-        <!-- Core Sections -->
-        <section id="sections">
-            <h2>📚 核心版块</h2>
-            <div class="sections-grid">
-                <div class="section-card">
-                    <span class="emoji">🐛</span>
-                    <h3>薛定谔的报错</h3>
-                    <p>专项研究那些在本地跑得完美无瑕，一旦上云部署或套上 Docker 容器就瞬间崩溃的玄学 Bug。</p>
-                    <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;">"Works on My Machine" Chronicles</p>
-                </div>
-                <div class="section-card">
-                    <span class="emoji">🏺</span>
-                    <h3>琥珀档案室</h3>
-                    <p>专注数字考古。打捞并深度分析十几年前老贴吧、旧论坛里那些极具时代特色的"互联网废料"。</p>
-                    <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;">The Amber Archive</p>
-                </div>
-                <div class="section-card">
-                    <span class="emoji">🎨</span>
-                    <h3>当代废料艺术</h3>
-                    <p>硬件翻车大赏。3D 打印失控变成的"塑料炒面"，被格式化的 SD 卡，只要你敢投，我们就敢发表。</p>
-                    <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;">Modern Art Graveyard</p>
-                </div>
-                <div class="section-card">
-                    <span class="emoji">⚫</span>
-                    <h3>算力黑洞</h3>
-                    <p>记录那些除了让 CPU 狂飙到 100°C 和消耗电费之外，没有产生任何实质作用的自动化脚本。</p>
-                    <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;">Black Hole of Compute</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Review Process -->
-        <section id="review">
-            <h2>🎲 赛博抽卡式评审</h2>
-            <p>我们坚决摒弃传统的人工审稿，采用全自动化的随机评审系统：</p>
-            
-            <div class="sections-grid" style="margin-top: 25px;">
-                <div class="section-card">
-                    <h3>🌤️ 当天天气</h3>
-                    <p>晴天录用率高，雨天拒稿率高</p>
-                    <p style="opacity: 0.7;">权重：30%</p>
-                </div>
-                <div class="section-card">
-                    <h3>💾 系统内存占用</h3>
-                    <p>内存充足时更宽容</p>
-                    <p style="opacity: 0.7;">权重：25%</p>
-                </div>
-                <div class="section-card">
-                    <h3>🤖 AI 幻觉程度</h3>
-                    <p>随机生成评审意见</p>
-                    <p style="opacity: 0.7;">权重：25%</p>
-                </div>
-                <div class="section-card">
-                    <h3>🌙 月球相位</h3>
-                    <p>满月时录用率 +10%</p>
-                    <p style="opacity: 0.7;">权重：20%</p>
-                </div>
-            </div>
-            
-            <div class="terminal" style="margin-top: 25px;">
-                <div class="terminal-line">waste review paper.pdf</div>
-                <div class="terminal-output">🎲 正在掷骰子...</div>
-                <div class="terminal-output">🌤️ 今天天气：晴 → 录用率 +15%</div>
-                <div class="terminal-output">💾 内存占用：78% → 审稿人心情一般</div>
-                <div class="terminal-output">🤖 AI 幻觉：建议将论文翻译成火星文</div>
-                <div class="terminal-output">✅ 评审结果：有条件录用（需附火星文翻译）</div>
-            </div>
-        </section>
-        
-        <!-- APC -->
-        <section id="apc">
-            <h2>💰 版面费 (APC)</h2>
-            <p><strong>拒收现金！</strong> 我们接受以下支付方式：</p>
-            
-            <div class="sections-grid" style="margin-top: 25px;">
-                <div class="section-card">
-                    <span class="emoji">🧵</span>
-                    <h3>3D 打印耗材</h3>
-                    <p>一卷没用完的 PLA/PETG</p>
-                </div>
-                <div class="section-card">
-                    <span class="emoji">💻</span>
-                    <h3>废弃代码</h3>
-                    <p>一段能跑但没用的 Python 爬虫</p>
-                </div>
-                <div class="section-card">
-                    <span class="emoji">🔌</span>
-                    <h3>体力劳动</h3>
-                    <p>帮主编给服务器拉根网线</p>
-                </div>
-                <div class="section-card">
-                    <span class="emoji">💌</span>
-                    <h3>情绪价值</h3>
-                    <p>给主编写一封真诚的感谢信</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Submit -->
-        <section id="submit">
-            <h2>✍️ 在线投稿</h2>
-            <p>准备好您的"学术垃圾"了吗？立即投稿，成为 WASTE 创刊号的荣誉作者！</p>
-            
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="mailto:waste-journal@example.com" class="btn">📧 发送邮件投稿</a>
-                <p style="margin-top: 20px; opacity: 0.7;">或发送至：waste-journal@example.com</p>
-            </div>
-            
-            <h3 style="margin-top: 30px;">📝 投稿要求</h3>
-            <ul style="margin-left: 20px; margin-top: 15px; line-height: 2;">
-                <li>论文必须曾被至少一个主流期刊拒稿（附拒稿信加分）</li>
-                <li>实验结果越离谱越好</li>
-                <li>必须包含"破防过程"描述</li>
-                <li>接受 LaTeX、Word、甚至手写拍照</li>
-                <li>鼓励附带报错截图、翻车视频</li>
-            </ul>
-            
-            <div class="terminal" style="margin-top: 25px;">
-                <div class="terminal-line">cat paper.pdf | waste submit</div>
-                <div class="terminal-output">🗑️ 收到投稿：paper.pdf</div>
-                <div class="terminal-output">📊 字数统计：6666 字（吉利数字！）</div>
-                <div class="terminal-output">🎯 匹配版块：薛定谔的报错</div>
-                <div class="terminal-output">✅ 投稿成功！审稿结果将在 3-5 个"工作日"（取决于 AI 心情）内通知。</div>
-            </div>
-        </section>
-        
-        <!-- About -->
-        <section id="about">
-            <h2>ℹ️ 关于我们</h2>
-            <p><strong>WASTE</strong> 是一本讽刺性反常规学术期刊，由一群被学术界毒打过的研究者和开发者创办。</p>
-            
-            <div class="terminal" style="margin-top: 20px;">
-                <div class="terminal-line">waste mission-statement</div>
-                <div class="terminal-output">在这个内卷的时代，不是每篇论文都能改变世界，但至少，你的论文可以改变读者的心情。</div>
-                <div class="terminal-output">WASTE 的存在就是为了给所有的"无用功"和"失败品"建一座纪念碑。</div>
-                <div class="terminal-output">毕竟，没有这些铺垫，哪来的成功？</div>
-            </div>
-            
-            <h3 style="margin-top: 30px;">🎯 目标受众</h3>
-            <ul style="margin-left: 20px; margin-top: 15px; line-height: 2;">
-                <li>每天都在与环境配置和报错作斗争，急需情绪价值的开发者</li>
-                <li>致力于收集、整理互联网"高价值数字废料"的赛博拾荒者与数字策展人</li>
-                <li>喜欢硬核整活、试图用最严谨的科学原理解释最离谱现象的内容创作者</li>
-            </ul>
-            
-            <blockquote style="margin-top: 30px; padding: 20px; border-left: 4px solid var(--primary-color); background: rgba(46, 204, 113, 0.1); border-radius: 8px;">
-                <p style="font-style: italic; font-size: 1.1rem;">
-                    "在这个追求绝对效率和完美的时代，《WASTE》的存在就是为了给所有的'无用功'和'失败品'建一座纪念碑。毕竟，没有这些铺垫，哪来的成功？欢迎向《WASTE》投稿，让我们一起把浪费发挥到极致！"
-                </p>
-                <p style="margin-top: 15px; text-align: right; opacity: 0.7;">— York 主编</p>
-            </blockquote>
-        </section>
-        
-        <!-- Footer -->
-        <footer>
-            <div class="footer-emoji">🗑️ 🤖 💾 🐛 🏺</div>
-            <p>WASTE Journal © 2026 | "Conserve the Useless, Archive the Absurd"</p>
-            <p style="margin-top: 10px;">
-                <span style="opacity: 0.5;">Powered by ☕ and 🐛 | Built with 💻 and 😅</span>
-            </p>
-            <p style="margin-top: 10px; font-size: 0.9em;">
-                <a href="https://github.com/YupenBob/waste-journal" style="color: var(--primary-color); text-decoration: none;">GitHub</a> | 
-                <a href="#cfp" style="color: var(--primary-color); text-decoration: none;">征稿启事</a> | 
-                <a href="#submit" style="color: var(--primary-color); text-decoration: none;">投稿</a>
-            </p>
-        </footer>
+  <header>
+    <div class="header-content">
+      <h1 class="journal-title">WASTE</h1>
+      <p class="journal-subtitle">Worldwide Archive of Substandard Tech & Experiments</p>
+      <div class="journal-meta">
+        <span>📄 ISSN: Pending (申请中)</span>
+        <span>📅 Founded: 2026</span>
+        <span>🌐 Open Access</span>
+        <span>✅ Peer-Reviewed*</span>
+      </div>
+      <p style="font-size: 0.8rem; color: #999; margin-top: 0.5rem;">*评审过程取决于主编当天喝了几杯咖啡</p>
+    </div>
+  </header>
+  
+  <nav>
+    <div class="nav-content">
+      <ul>
+        <li><a href="#home">首页</a></li>
+        <li><a href="#sections">版块</a></li>
+        <li><a href="#latest">最新论文</a></li>
+        <li><a href="#submit">投稿指南</a></li>
+        <li><a href="#about">关于</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main id="home">
+    <div class="hero">
+      <h2>留存无用，存档荒诞</h2>
+      <p><strong>Conserve the Useless, Archive the Absurd.</strong></p>
+      <p style="margin-top: 1rem;">WASTE 是一本经（自）过（封）同（的）行（学）评（期）审（刊）的开放获取期刊，致力于收录主流学术出版体系未能充分重视的技术文档与实验报告。</p>
+      <p style="margin-top: 1rem; color: #666;">我们相信，每一个"失败"的实验背后，都藏着一个值得讲述的故事。也许是代码在本地跑得好好的，一部署就崩；也许是花了一周写的爬虫，爬回来的数据完全用不上；也许是用超级计算机算了三天，发现公式抄错了……</p>
+      <a href="#submit" class="cta-button">📝 立即投稿</a>
     </div>
     
-    <script>
-        // Smooth scroll for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <h2 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1.5rem; font-family: Georgia, serif;">核心版块</h2>
+    <div class="sections-grid" id="sections">
+      <div class="section-card">
+        <div class="section-icon">🐛</div>
+        <h3>薛定谔的报错</h3>
+        <p>研究那些"在我机器上能跑"的玄学 Bug。投稿请附上：报错截图、环境配置、破防过程描述。</p>
+      </div>
+      
+      <div class="section-card">
+        <div class="section-icon">🏺</div>
+        <h3>琥珀档案室</h3>
+        <p>数字考古专用。打捞老贴吧、旧论坛里的"互联网废料"，比如 2010 年前的火星文教程、非主流 QQ 空间装饰指南。</p>
+      </div>
+      
+      <div class="section-card">
+        <div class="section-icon">🎨</div>
+        <h3>当代废料艺术</h3>
+        <p>硬件翻车大赏。3D 打印失败的"塑料炒面"、格式化的 SD 卡、烧坏的电路板……只要你敢投，我们就敢发。</p>
+      </div>
+      
+      <div class="section-card">
+        <div class="section-icon">⚫</div>
+        <h3>算力黑洞</h3>
+        <p>记录那些除了让 CPU 发烧和烧电费之外，没产生任何实际作用的脚本。比如跑了 72 小时只为了生成"Hello World"的 AI。</p>
+      </div>
+    </div>
+    
+    <div class="latest-papers" id="latest">
+      <h2>📬 首期征稿进行中</h2>
+      <div class="paper-item">
+        <p class="paper-title">截稿日期：2026 年 3 月 31 日</p>
+        <p class="paper-authors">投稿方式：waste-journal@example.com</p>
+        <div class="paper-meta">
+          <span>📄 格式不限（LaTeX/Word/手写拍照都行）</span>
+          <span>💰 版面费：不收现金（接受 3D 打印耗材）</span>
+        </div>
+      </div>
+      
+      <div class="paper-item">
+        <p class="paper-title">审稿周期：7-14 个工作日</p>
+        <p class="paper-authors">（实际取决于主编当天喝了几杯咖啡）</p>
+        <div class="paper-meta">
+          <span>🌤️ 晴天录用率更高</span>
+          <span>🌙 满月时录用率 +10%</span>
+          <span class="paper-doi">DOI: 10.waste/2026.001</span>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer id="about">
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>📬 联系我们</h4>
+          <p>投稿邮箱：waste-journal@example.com</p>
+          <p>GitHub: <a href="https://github.com/YupenBob/waste-journal" style="color: #aaa;">@YupenBob/waste-journal</a></p>
+        </div>
         
-        // Console easter egg
-        console.log('%c🗑️ Welcome to WASTE Journal!', 'font-size: 24px; color: #2ecc71; font-weight: bold;');
-        console.log('%c"Conserve the Useless, Archive the Absurd."', 'font-size: 14px; color: #3498db;');
-        console.log('%cYour rejected paper is our treasure!', 'font-size: 12px; color: #e74c3c;');
-        console.log('%c投稿请发送至：waste-journal@example.com', 'font-size: 12px; color: #2ecc71;');
-    </script>
+        <div class="footer-section">
+          <h4>📋 快速链接</h4>
+          <p><a href="#submit" style="color: #aaa;">投稿指南</a></p>
+          <p><a href="#sections" style="color: #aaa;">版块介绍</a></p>
+          <p><a href="https://github.com/YupenBob/waste-journal" style="color: #aaa;">GitHub 仓库</a></p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>⚖️ 许可证</h4>
+          <p>网站代码：MIT</p>
+          <p>期刊内容：CC BY-NC-SA 4.0</p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #888;">欢迎整活，但请署名</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2026 WASTE Journal. "在这个追求效率和完美的时代，总得有人给失败品建个纪念碑。" — York 主编</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
