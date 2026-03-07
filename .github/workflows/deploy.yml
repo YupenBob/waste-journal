@@ -1,103 +1,54 @@
-name: 🗑️ RUBBISH Journal - Auto Deploy
+name: 🗑️ Deploy to GitHub Pages
 
 on:
   push:
     branches: [main, master]
-  pull_request:
-    branches: [main, master]
-  workflow_dispatch:  # 允许手动触发
+  workflow_dispatch:
 
-# 权限配置
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
-# 允许一个部署并发运行
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # 构建任务
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    
     steps:
-      - name: 📥 检出代码
+      - name: 📥 Checkout
         uses: actions/checkout@v4
       
-      - name: 📦 设置 Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
+      - name: 📁 Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
       
-      - name: 🔧 安装依赖（如有）
+      - name: 🏗️ Build
         run: |
-          if [ -f "package.json" ]; then
-            npm ci
-          else
-            echo "⚠️ 无 package.json，跳过 npm install"
-          fi
-      
-      - name: 🏗️ 构建网站
-        run: |
-          # 如果是 Hugo 项目
-          if [ -f "hugo.toml" ] || [ -f "config.toml" ]; then
-            echo "🔨 检测到 Hugo 项目，执行构建..."
-            hugo --minify
-          # 如果是 Hexo 项目
-          elif [ -f "_config.yml" ] && [ -d "source" ]; then
-            echo "🔨 检测到 Hexo 项目，执行构建..."
-            npm install
-            hexo generate
-          # 如果是纯静态网站
-          elif [ -d "site" ]; then
-            echo "🔨 静态网站，复制 site/ 目录..."
-            mkdir -p public
+          # WASTE 是纯静态网站，直接复制 site 目录
+          mkdir -p public
+          if [ -d "site" ]; then
             cp -r site/* public/
           else
-            echo "🔨 默认构建，复制根目录文件..."
-            mkdir -p public
-            cp -r *.html *.css *.js *.png *.jpg public/ 2>/dev/null || true
+            cp *.html *.css *.js *.png *.jpg public/ 2>/dev/null || true
           fi
+          echo "✅ Build complete"
+          ls -lh public/
       
-      - name: 📊 生成构建报告
-        run: |
-          echo "=== 构建完成 ==="
-          echo "📁 构建目录:"
-          ls -lh public/ 2>/dev/null || ls -lh site/ 2>/dev/null || echo "未找到输出目录"
-          echo ""
-          echo "📊 文件统计:"
-          find . -name "*.html" | wc -l | xargs -I {} echo "  HTML 文件：{} 个"
-          find . -name "*.css" | wc -l | xargs -I {} echo "  CSS 文件：{} 个"
-          find . -name "*.js" | wc -l | xargs -I {} echo "  JS 文件：{} 个"
-      
-      - name: 📤 上传构建产物
+      - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
-          # 如果没有 public 目录，使用 site
-          # path: ./site
   
-  # 部署任务
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    
     steps:
-      - name: 🚀 部署到 GitHub Pages
+      - name: 🚀 Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-      
-      - name: 📝 输出部署信息
-        run: |
-          echo "✅ 部署成功！"
-          echo "🌐 访问地址：${{ steps.deployment.outputs.page_url }}"
