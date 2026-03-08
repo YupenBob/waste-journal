@@ -359,14 +359,17 @@ nav ul {
 
 .sidebar-nav {
   padding: 1.5rem;
+  display: block !important;
 }
 
 .sidebar-nav ul {
   list-style: none;
+  display: block !important;
 }
 
 .sidebar-nav li {
   margin-bottom: 0.5rem;
+  display: block !important;
 }
 
 .sidebar-nav a {

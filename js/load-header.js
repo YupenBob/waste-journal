@@ -8,19 +8,21 @@
   fetch('components/header.html')
     .then(response => {
       if (!response.ok) {
-        throw new Error('无法加载 header 组件');
+        throw new Error('无法加载 header 组件：' + response.status);
       }
       return response.text();
     })
     .then(html => {
+      console.log('✅ Header HTML 加载成功，长度:', html.length);
       // 插入到 body 开头
       document.body.insertAdjacentHTML('afterbegin', html);
+      console.log('✅ Header 插入到页面');
       
       // 加载完成后初始化
       initHeader();
     })
     .catch(error => {
-      console.error('加载 header 失败:', error);
+      console.error('❌ 加载 header 失败:', error);
     });
   
   // 初始化函数
