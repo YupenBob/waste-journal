@@ -379,6 +379,10 @@ nav ul {
   border-left: 2px solid transparent;
 }
 
+.sidebar-nav a::before {
+  display: none;
+}
+
 .sidebar-nav a:hover {
   color: white;
   background: rgba(255,255,255,0.05);
@@ -473,10 +477,17 @@ footer {
   .logo-subtitle span { font-size: 0.55rem; }
   .header-content { flex-direction: column; text-align: center; }
   .header-actions { justify-content: center; }
-  .nav-item { padding: 0.75rem 1rem; font-size: 0.6rem; }
   
-  /* 移动端显示侧边栏按钮 */
-  .sidebar-toggle { display: flex; }
+  /* 手机端隐藏导航栏 */
+  nav { display: none; }
+  
+  /* 手机端显示侧边栏按钮 */
+  .sidebar-toggle { 
+    display: flex;
+    top: auto;
+    bottom: 1rem;
+    left: 1rem;
+  }
 }
 
 @media (min-width: 769px) {
