@@ -3,62 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - WASTE Journal</title>
+  <title>About - W.A.S.T.E. Journal</title>
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="/>
-  <style>
-    :root {
-      --color-paper: #f9f9f9;
-      --color-charcoal: #333;
-      --color-charcoal-light: #555;
-      --color-accent-gold: #c5a02f;
-      --color-science-red: #d12f2f;
-      --color-gray-300: #e0e0e0;
-      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-serif: "Playfair Display", "Noto Serif SC", serif;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background-color: var(--color-paper); font-family: var(--font-sans); color: var(--color-charcoal); line-height: 1.6; }
-    .chinese-serif { font-family: var(--font-serif); }
-    header { background: white; border-bottom: 4px solid var(--color-science-red); padding: 2.5rem 0; }
-    .header-content { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; text-align: center; }
-    .journal-title { font-family: var(--font-serif); font-size: 3rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-charcoal); margin-bottom: 0.5rem; }
-    .journal-subtitle { font-size: 0.75rem; color: var(--color-charcoal-light); letter-spacing: 0.15em; text-transform: uppercase; }
-    nav { background: white; border-bottom: 1px solid var(--color-gray-300); padding: 0; }
-    .nav-content { max-width: 72rem; margin: 0 auto; display: flex; justify-content: center; }
-    nav ul { list-style: none; display: flex; }
-    .nav-item { border-right: 1px solid var(--color-gray-300); padding: 0.75rem 2rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal-light); transition: color 0.2s; }
-    .nav-item:last-child { border-right: none; }
-    .nav-item:hover { color: var(--color-science-red); }
-    .nav-item.active { color: var(--color-science-red); border-bottom: 2px solid var(--color-science-red); }
-    main { max-width: 72rem; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
-    .page-title { font-family: var(--font-serif); font-size: 2.25rem; text-align: center; margin-bottom: 3rem; color: var(--color-charcoal); font-weight: 400; }
-    .content-section { background: white; border: 1px solid var(--color-gray-300); padding: 2.5rem; margin-bottom: 2rem; }
-    .content-section h2 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--color-charcoal); font-weight: 400; border-bottom: 2px solid var(--color-gray-300); padding-bottom: 0.75rem; }
-    .content-section p { margin-bottom: 1rem; line-height: 1.8; }
-    .content-section ul { margin-left: 2rem; margin-bottom: 1rem; }
-    .content-section li { margin-bottom: 0.5rem; line-height: 1.7; }
-    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 2rem 0; }
-    .stat-card { text-align: center; padding: 1.5rem; background: var(--color-paper); border: 1px solid var(--color-gray-300); }
-    .stat-number { font-size: 2.5rem; font-family: var(--font-serif); color: var(--color-accent-gold); font-weight: 700; }
-    .stat-label { font-size: 0.75rem; color: var(--color-charcoal-light); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem; }
-    footer { background: var(--color-charcoal); color: white; padding: 3rem 0; margin-top: 4rem; }
-    .footer-content { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
-    .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
-    .footer-section h4 { font-size: 0.75rem; margin-bottom: 1rem; letter-spacing: 0.15em; text-transform: uppercase; }
-    .footer-section p, .footer-section a { font-size: 0.875rem; color: #aaa; line-height: 2; text-decoration: none; }
-    .footer-section a:hover { color: white; }
-    .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: #888; }
-    @media (max-width: 768px) {
-      .journal-title { font-size: 2rem; letter-spacing: 0.15em; }
-      .nav-item { padding: 0.75rem 1rem; font-size: 0.6rem; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr; }
-      main { padding: 2rem 1rem 3rem; }
-      .content-section { padding: 1.5rem; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
+  <!-- Sticky Bar -->
+  <div class="sticky-bar" id="stickyBar">
+    <div class="sticky-bar-content">
+      <a href="index.html" class="sticky-bar-logo">W.A.S.T.E.</a>
+      <nav class="sticky-bar-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="sections.html">Sections</a>
+        <a href="submission-guidelines.html">Submit</a>
+        <a href="https://github.com/YupenBob/waste-journal" target="_blank">GitHub</a>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Sidebar Toggle -->
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">W.A.S.T.E.</div>
+      <p class="sidebar-tagline">One man's waste is another man's wisdom.</p>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="index.html">🏠 Home / 主页</a></li>
+        <li><a href="about.html">📖 About / 关于</a></li>
+        <li><a href="sections.html">🗑️ Sections / 栏目</a></li>
+        <li><a href="editorial-board.html">👥 Board / 编委</a></li>
+        <li><a href="submission-guidelines.html">📝 Submit / 投稿</a></li>
+        <li><a href="archive.html">📚 Archive / 存档</a></li>
+        <li><a href="faq.html">❓ FAQ / 常见问题</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">
+      <p><strong>Contact</strong></p>
+      <p>Email: york255@163.com</p>
+      <p style="margin-top: 1rem;"><strong>GitHub</strong></p>
+      <p>@YupenBob/waste-journal</p>
+      <p style="margin-top: 1rem; font-size: 0.65rem; color: #666;">© 2026 W.A.S.T.E. Journal<br>Highly Refined Rubbish</p>
+    </div>
+  </div>
+  
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-content">
+      <a href="submission-guidelines.html">Submit / 投稿</a>
+      <a href="editorial-board.html">Board / 编委</a>
+      <a href="https://github.com/YupenBob/waste-journal" target="_blank">GitHub</a>
+    </div>
+  </div>
+  
+  <!-- Header -->
   <header>
     <div class="header-content">
       <a href="index.html" class="logo">
@@ -71,14 +82,20 @@
           <span>Experiments</span>
         </div>
       </a>
+      <div class="header-actions">
+        <a href="submission-guidelines.html" class="btn btn-outline">Submit</a>
+        <a href="https://github.com/YupenBob/waste-journal" class="btn btn-primary" target="_blank">Join</a>
+      </div>
     </div>
   </header>
   
+  <!-- Navigation -->
   <nav>
     <div class="nav-content">
       <ul>
         <li class="nav-item"><a href="index.html" style="color: inherit; text-decoration: none;">Home</a></li>
         <li class="nav-item active"><a href="about.html" style="color: inherit; text-decoration: none;">About</a></li>
+        <li class="nav-item"><a href="sections.html" style="color: inherit; text-decoration: none;">Sections</a></li>
         <li class="nav-item"><a href="editorial-board.html" style="color: inherit; text-decoration: none;">Board</a></li>
         <li class="nav-item"><a href="submission-guidelines.html" style="color: inherit; text-decoration: none;">Submit</a></li>
         <li class="nav-item"><a href="archive.html" style="color: inherit; text-decoration: none;">Archive</a></li>
@@ -86,99 +103,44 @@
       </ul>
     </div>
   </nav>
-  
+
   <main>
-    <h1 class="page-title">About WASTE</h1>
+    <h1 class="page-title">About W.A.S.T.E.</h1>
     
     <div class="content-section">
       <h2>Journal Mission</h2>
       <p class="chinese-serif"><strong>留存无用，存档荒诞。</strong></p>
       <p><strong>Conserve the Useless, Archive the Absurd.</strong></p>
       <p style="margin-top: 1.5rem;">
-        WASTE (Worldwide Archive of Substandard Tech & Experiments) 是一本经（自）过（封）同（的）行（学）评（期）审（刊）的开放获取期刊，
+        W.A.S.T.E. (Worldwide Archive of Substandard Tech & Experiments) 是一本经（自）过（封）同（的）行（学）评（期）审（刊）的开放获取期刊，
         致力于收录主流学术出版体系未能充分重视的技术文档与实验报告。
       </p>
       <p>
         在学术出版日益追求"影响力"和"引用率"的今天，大量有价值的"失败"研究被埋没。
-        我们相信，每一个"失败"的实验背后，都藏着一个值得讲述的故事——也许是代码在本地跑得好好的，一部署就崩；
-        也许是花了一周写的爬虫，爬回来的数据完全用不上；也许是用超级计算机算了三天，发现公式抄错了。
+        我们相信，每一个"失败"的实验背后，都藏着一个值得讲述的故事。
       </p>
       <p>
-        WASTE 为这些"学术孤儿"提供一个归宿，让后来的研究者少走弯路，也让"失败"本身成为知识的一部分。
+        W.A.S.T.E. 为这些"学术孤儿"提供一个归宿，让后来的研究者少走弯路，也让"失败"本身成为知识的一部分。
       </p>
     </div>
     
     <div class="content-section">
       <h2>Scope & Sections</h2>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-number">4</div>
-          <div class="stat-label">Sections</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">∞</div>
-          <div class="stat-label">Possibilities</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Open Access</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">0</div>
-          <div class="stat-label">APC (Cash)</div>
-        </div>
-      </div>
       
-      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">🐛 薛定谔的报错 (Schrödinger's Error)</h3>
-      <p>研究那些"在我机器上能跑"的玄学 Bug。我们欢迎：环境依赖地狱、跨平台兼容性问题、版本冲突导致的诡异行为、以及任何让开发者怀疑人生的报错信息。</p>
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">🗑️ 填埋场 (Landfill)</h3>
+      <p>阴性结果与沉默数据。专门收录逻辑严密、实验规范，但"什么也没做出来"的论文。</p>
       
-      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">🏺 琥珀档案室 (Amber Archive)</h3>
-      <p>数字考古专用。打捞老贴吧、旧论坛、已关闭网站里的"互联网废料"，比如 2010 年前的火星文教程、非主流 QQ 空间装饰指南、早期网页游戏的 UI 截图。这些看似无用的内容，实则是互联网文化演进的见证。</p>
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">🔥 焚化炉 (Incinerator)</h3>
+      <p>范式解构与反向验证。专门刊登针对现有文献的"复现失败"报告。</p>
       
-      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">🎨 当代废料艺术 (Contemporary Waste Art)</h3>
-      <p>硬件翻车大赏。3D 打印失败的"塑料炒面"、格式化的 SD 卡、烧坏的电路板、焊废了的 PCB……只要你敢投，我们就敢发。艺术不在博物馆，在你的垃圾桶里。</p>
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">♻️ 废品回收站 (Recycling Plant)</h3>
+      <p>跨界拾荒与历史打捞。鼓励学者把被拒稿的"学术边角料"拿出来重新包装。</p>
       
-      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">⚫ 算力黑洞 (Computational Black Hole)</h3>
-      <p>记录那些除了让 CPU 发烧和烧电费之外，没产生任何实际作用的脚本。比如跑了 72 小时只为了生成"Hello World"的 AI、用云计算"中午吃什么"的决策系统、以及任何让运维工程师看了会沉默的代码。</p>
-    </div>
-    
-    <div class="content-section">
-      <h2>Editorial Philosophy</h2>
-      <p><strong>我们的评审标准：</strong></p>
-      <ul>
-        <li><strong>真实性</strong>：实验必须真实存在，失败必须真实发生</li>
-        <li><strong>教育意义</strong>：能让后来者避免同样的坑</li>
-        <li><strong>故事性</strong>：破防过程描述越生动越好</li>
-        <li><strong>幽默感</strong>：能让人会心一笑的失败更有价值</li>
-      </ul>
-      <p style="margin-top: 1.5rem;"><strong>评审流程说明：</strong></p>
-      <p>本刊采用"双盲评审"制度（作者不知道审稿人是谁，审稿人……其实主编看心情决定）。审稿周期约为 7-14 个工作日，实际时长取决于：</p>
-      <ul>
-        <li>当天天气（晴天录用率更高）</li>
-        <li>系统内存占用（内存充足时更宽容）</li>
-        <li>AI 随机生成的评审意见</li>
-        <li>月球相位（满月时录用率 +10%）</li>
-        <li>主编当天喝了几杯咖啡</li>
-      </ul>
-    </div>
-    
-    <div class="content-section">
-      <h2>Open Access & License</h2>
-      <p><strong>开放获取政策：</strong></p>
-      <p>WASTE 是一本完全开放获取的期刊。所有发表的内容都可以免费阅读、下载、复制、传播。</p>
-      <p><strong>许可证：</strong></p>
-      <ul>
-        <li><strong>网站代码</strong>：MIT License</li>
-        <li><strong>期刊内容</strong>：CC BY-NC-SA 4.0（欢迎整活，但请署名）</li>
-      </ul>
-      <p><strong>版面费（Article Processing Charge）：</strong></p>
-      <p>不收现金。接受以下支付方式：</p>
-      <ul>
-        <li>一卷没用完的 3D 打印耗材</li>
-        <li>一段能跑但没用的 Python 代码</li>
-        <li>帮主编给服务器拉根网线</li>
-        <li>一封真诚的感谢信</li>
-      </ul>
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">🔬 微塑料 (Microplastics)</h3>
+      <p>极简学术与微小贡献。严格限制篇幅，只允许展示"一个图 + 一个极其微小的结论"。</p>
+      
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">☢️ 放射性废料 (Radioactive Waste)</h3>
+      <p>危险思想与未定论。专门收录那些逻辑自洽，但结论过于离经叛道的假说。</p>
     </div>
     
     <div class="content-section">
@@ -186,12 +148,10 @@
       <p><strong>投稿邮箱</strong>：york255@163.com</p>
       <p><strong>GitHub</strong>：https://github.com/YupenBob/waste-journal</p>
       <p><strong>主编</strong>：York</p>
-      <p style="margin-top: 1.5rem; font-style: italic; color: var(--color-charcoal-light);">
-        "在这个追求效率和完美的时代，总得有人给失败品建个纪念碑。"
-      </p>
     </div>
   </main>
-  
+
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-grid">
@@ -203,7 +163,8 @@
         <div class="footer-section">
           <h4>Quick Links</h4>
           <p><a href="submission-guidelines.html">Submission Guidelines</a></p>
-          <p><a href="editorial-board.html">Editorial Board</a></p>
+          <p><a href="sections.html">Sections</a></p>
+          <p><a href="about.html">About</a></p>
           <p><a href="https://github.com/YupenBob/waste-journal">GitHub Repository</a></p>
         </div>
         <div class="footer-section">
@@ -218,5 +179,7 @@
       </div>
     </div>
   </footer>
+  
+  <script src="js/main.js"></script>
 </body>
 </html>
