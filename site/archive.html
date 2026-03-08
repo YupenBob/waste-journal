@@ -3,66 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archive - WASTE Journal</title>
+  <title>Archive - W.A.S.T.E. Journal</title>
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="/>
-  <style>
-    :root { --color-paper: #f9f9f9; --color-charcoal: #333; --color-charcoal-light: #555; --color-accent-gold: #c5a02f; --color-science-red: #d12f2f; --color-gray-300: #e0e0e0; --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; --font-serif: "Playfair Display", "Noto Serif SC", serif; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background-color: var(--color-paper); font-family: var(--font-sans); color: var(--color-charcoal); line-height: 1.6; }
-    .chinese-serif { font-family: var(--font-serif); }
-    header { background: white; border-bottom: 4px solid var(--color-science-red); padding: 2.5rem 0; }
-    .header-content { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; text-align: center; }
-    .journal-title { font-family: var(--font-serif); font-size: 3rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-charcoal); margin-bottom: 0.5rem; }
-    .journal-subtitle { font-size: 0.75rem; color: var(--color-charcoal-light); letter-spacing: 0.15em; text-transform: uppercase; }
-    nav { background: white; border-bottom: 1px solid var(--color-gray-300); padding: 0; }
-    .nav-content { max-width: 72rem; margin: 0 auto; display: flex; justify-content: center; }
-    nav ul { list-style: none; display: flex; }
-    .nav-item { border-right: 1px solid var(--color-gray-300); padding: 0.75rem 2rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal-light); transition: color 0.2s; }
-    .nav-item:last-child { border-right: none; }
-    .nav-item:hover { color: var(--color-science-red); }
-    .nav-item.active { color: var(--color-science-red); border-bottom: 2px solid var(--color-science-red); }
-    main { max-width: 72rem; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
-    .page-title { font-family: var(--font-serif); font-size: 2.25rem; text-align: center; margin-bottom: 2rem; color: var(--color-charcoal); font-weight: 400; }
-    .issue-header { background: white; border: 1px solid var(--color-gray-300); padding: 2rem; margin-bottom: 2rem; text-align: center; }
-    .issue-header h2 { font-family: var(--font-serif); font-size: 1.75rem; margin-bottom: 0.5rem; }
-    .issue-header p { color: var(--color-charcoal-light); font-size: 0.875rem; }
-    .paper-list { background: white; border: 1px solid var(--color-gray-300); }
-    .paper-item { padding: 1.5rem 2rem; border-bottom: 1px solid var(--color-gray-300); transition: background 0.2s; }
-    .paper-item:last-child { border-bottom: none; }
-    .paper-item:hover { background: #f5f5f5; }
-    .paper-title { font-size: 1.125rem; font-weight: 600; color: var(--color-charcoal); margin-bottom: 0.5rem; font-family: var(--font-serif); }
-    .paper-authors { font-size: 0.875rem; color: var(--color-charcoal-light); margin-bottom: 0.75rem; }
-    .paper-meta { display: flex; gap: 1.5rem; font-size: 0.75rem; color: var(--color-charcoal-light); flex-wrap: wrap; }
-    .paper-doi { font-family: "Courier New", monospace; background: #f5f5f5; padding: 0.25rem 0.5rem; }
-    .paper-section { display: inline-block; padding: 0.25rem 0.75rem; background: var(--color-amber-50); color: var(--color-accent-gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; }
-    .empty-state { text-align: center; padding: 4rem 2rem; background: white; border: 1px solid var(--color-gray-300); }
-    .empty-state h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1rem; }
-    .empty-state p { color: var(--color-charcoal-light); margin-bottom: 1.5rem; }
-    .cta-button { display: inline-block; background: var(--color-accent-gold); color: white; padding: 0.875rem 2.5rem; text-decoration: none; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; transition: background 0.2s; }
-    .cta-button:hover { background: #b18e26; }
-    footer { background: var(--color-charcoal); color: white; padding: 3rem 0; margin-top: 4rem; }
-    .footer-content { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
-    .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
-    .footer-section h4 { font-size: 0.75rem; margin-bottom: 1rem; letter-spacing: 0.15em; text-transform: uppercase; }
-    .footer-section p, .footer-section a { font-size: 0.875rem; color: #aaa; line-height: 2; text-decoration: none; }
-    .footer-section a:hover { color: white; }
-    .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: #888; }
-    @media (max-width: 768px) { .journal-title { font-size: 2rem; letter-spacing: 0.15em; } .nav-item { padding: 0.75rem 1rem; font-size: 0.6rem; } .paper-meta { flex-direction: column; gap: 0.5rem; } .footer-grid { grid-template-columns: 1fr; } main { padding: 2rem 1rem 3rem; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
+  <!-- Sticky Bar -->
+  <div class="sticky-bar" id="stickyBar">
+    <div class="sticky-bar-content">
+      <a href="index.html" class="sticky-bar-logo">W.A.S.T.E.</a>
+      <nav class="sticky-bar-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="sections.html">Sections</a>
+        <a href="submission-guidelines.html">Submit</a>
+        <a href="https://github.com/YupenBob/waste-journal" target="_blank">GitHub</a>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Sidebar Toggle -->
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">W.A.S.T.E.</div>
+      <p class="sidebar-tagline">One man's waste is another man's wisdom.</p>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="index.html">🏠 Home / 主页</a></li>
+        <li><a href="about.html">📖 About / 关于</a></li>
+        <li><a href="sections.html">🗑️ Sections / 栏目</a></li>
+        <li><a href="editorial-board.html">👥 Board / 编委</a></li>
+        <li><a href="submission-guidelines.html">📝 Submit / 投稿</a></li>
+        <li><a href="archive.html">📚 Archive / 存档</a></li>
+        <li><a href="faq.html">❓ FAQ / 常见问题</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">
+      <p><strong>Contact</strong></p>
+      <p>Email: york255@163.com</p>
+      <p style="margin-top: 1rem;"><strong>GitHub</strong></p>
+      <p>@YupenBob/waste-journal</p>
+      <p style="margin-top: 1rem; font-size: 0.65rem; color: #666;">© 2026 W.A.S.T.E. Journal<br>Highly Refined Rubbish</p>
+    </div>
+  </div>
+  
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-content">
+      <a href="submission-guidelines.html">Submit / 投稿</a>
+      <a href="editorial-board.html">Board / 编委</a>
+      <a href="https://github.com/YupenBob/waste-journal" target="_blank">GitHub</a>
+    </div>
+  </div>
+  
+  <!-- Header -->
   <header>
     <div class="header-content">
-      <h1 class="journal-title">WASTE</h1>
-      <p class="journal-subtitle">Worldwide Archive of Substandard Tech & Experiments</p>
+      <a href="index.html" class="logo">
+        <h1 class="logo-title">W.A.S.T.E.</h1>
+        <div class="logo-subtitle">
+          <span>Worldwide</span>
+          <span>Archive</span>
+          <span>Substandard</span>
+          <span>Tech</span>
+          <span>Experiments</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <a href="submission-guidelines.html" class="btn btn-outline">Submit</a>
+        <a href="https://github.com/YupenBob/waste-journal" class="btn btn-primary" target="_blank">Join</a>
+      </div>
     </div>
   </header>
   
+  <!-- Navigation -->
   <nav>
     <div class="nav-content">
       <ul>
         <li class="nav-item"><a href="index.html" style="color: inherit; text-decoration: none;">Home</a></li>
         <li class="nav-item"><a href="about.html" style="color: inherit; text-decoration: none;">About</a></li>
+        <li class="nav-item"><a href="sections.html" style="color: inherit; text-decoration: none;">Sections</a></li>
         <li class="nav-item"><a href="editorial-board.html" style="color: inherit; text-decoration: none;">Board</a></li>
         <li class="nav-item"><a href="submission-guidelines.html" style="color: inherit; text-decoration: none;">Submit</a></li>
         <li class="nav-item active"><a href="archive.html" style="color: inherit; text-decoration: none;">Archive</a></li>
@@ -70,7 +103,7 @@
       </ul>
     </div>
   </nav>
-  
+
   <main>
     <h1 class="page-title">Archive</h1>
     
@@ -81,59 +114,15 @@
     
     <div class="empty-state">
       <h3>📬 首期征稿进行中</h3>
-      <p class="chinese-serif">WASTE Journal 将于 2026 年 4 月 1 日（愚人节）正式发布首期</p>
+      <p class="chinese-serif">W.A.S.T.E. Journal 将于 2026 年 4 月 1 日（愚人节）正式发布首期</p>
       <p>现在投稿，成为创刊作者！</p>
       <p style="margin-top: 1.5rem;">
         <a href="submission-guidelines.html" class="cta-button">Submit Your Paper</a>
       </p>
-      <p style="margin-top: 2rem; font-size: 0.875rem; color: var(--color-charcoal-light);">
-        <strong>收稿范围：</strong>薛定谔的报错 · 琥珀档案室 · 当代废料艺术 · 算力黑洞
-      </p>
-    </div>
-    
-    <div class="content-section" style="background: white; border: 1px solid var(--color-gray-300); padding: 2.5rem; margin-top: 2rem;">
-      <h2>Call for Papers — Issue 001</h2>
-      
-      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem;">重要日期</h3>
-      <ul style="margin-left: 2rem;">
-        <li><strong>截稿日期</strong>：2026 年 3 月 31 日</li>
-        <li><strong>评审通知</strong>：2026 年 4 月 7 日</li>
-        <li><strong>正式发表</strong>：2026 年 4 月 1 日（愚人节）</li>
-      </ul>
-      
-      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem;">版块说明</h3>
-      
-      <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f5f5f5; border-left: 3px solid var(--color-accent-gold);">
-        <strong style="color: var(--color-charcoal);">🐛 薛定谔的报错</strong>
-        <p style="margin-top: 0.5rem; font-size: 0.875rem;">"Works on My Machine"现象学研究。环境依赖、跨平台兼容、版本冲突等玄学问题。</p>
-      </div>
-      
-      <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f5f5f5; border-left: 3px solid var(--color-accent-gold);">
-        <strong style="color: var(--color-charcoal);">🏺 琥珀档案室</strong>
-        <p style="margin-top: 0.5rem; font-size: 0.875rem;">数字考古。老贴吧、旧论坛、已关闭网站的内容打捞与整理。</p>
-      </div>
-      
-      <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f5f5f5; border-left: 3px solid var(--color-accent-gold);">
-        <strong style="color: var(--color-charcoal);">🎨 当代废料艺术</strong>
-        <p style="margin-top: 0.5rem; font-size: 0.875rem;">硬件翻车大赏。3D 打印失败、电路板烧毁、SD 卡格式化等实物"艺术品"。</p>
-      </div>
-      
-      <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f5f5f5; border-left: 3px solid var(--color-accent-gold);">
-        <strong style="color: var(--color-charcoal);">⚫ 算力黑洞</strong>
-        <p style="margin-top: 0.5rem; font-size: 0.875rem;">无用脚本日志。除了烧电费和让 CPU 发烧之外，没产生任何实际作用的代码。</p>
-      </div>
-      
-      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem;">投稿方式</h3>
-      <p><strong>邮箱</strong>：york255@163.com</p>
-      <p><strong>邮件标题</strong>：【WASTE 投稿】+ 你的论文标题</p>
-      <p><strong>格式</strong>：LaTeX / Word / Markdown / 手写拍照（只要能看清）</p>
-      
-      <p style="margin-top: 2rem; text-align: center;">
-        <a href="submission-guidelines.html" class="cta-button">View Full Guidelines</a>
-      </p>
     </div>
   </main>
-  
+
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-grid">
@@ -155,9 +144,12 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 WASTE Journal — York, Editor-in-Chief</p>
+        <p>© 2026 W.A.S.T.E. Journal — York, Editor-in-Chief</p>
+        <p style="margin-top: 0.5rem;">"One man's waste is another man's wisdom."</p>
       </div>
     </div>
   </footer>
+  
+  <script src="js/main.js"></script>
 </body>
 </html>
