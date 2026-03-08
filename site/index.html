@@ -3,414 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>W.A.S.T.E. Journal</title>
+  <title>W.A.S.T.E. Journal - Worldwide Archive of Substandard Tech & Experiments</title>
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --color-paper: #f9f9f9;
-      --color-charcoal: #333;
-      --color-charcoal-light: #555;
-      --color-accent-gold: #c5a02f;
-      --color-science-red: #d12f2f;
-      --color-gray-300: #e0e0e0;
-      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-serif: "Playfair Display", "Noto Serif SC", serif;
-    }
-    
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body {
-      background-color: var(--color-paper);
-      font-family: var(--font-sans);
-      color: var(--color-charcoal);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    
-    .chinese-serif { font-family: var(--font-serif); }
-    
-    /* Top Bar */
-    .top-bar {
-      background: white;
-      border-bottom: 1px solid var(--color-gray-300);
-      padding: 0.5rem 0;
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--color-charcoal-light);
-    }
-    
-    .top-bar-content {
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      justify-content: flex-end;
-      gap: 1.5rem;
-    }
-    
-    .top-bar a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    
-    .top-bar a:hover { color: var(--color-science-red); }
-    
-    /* Header */
-    header {
-      background: white;
-      border-bottom: 4px solid var(--color-charcoal);
-      padding: 2rem 0;
-    }
-    
-    .header-content {
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: inherit;
-    }
-    
-    .logo-title {
-      font-family: var(--font-serif);
-      font-size: 3.5rem;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-      line-height: 1;
-      color: var(--color-charcoal);
-    }
-    
-    .logo-subtitle {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 0.5rem 0;
-      height: 3.5rem;
-    }
-    
-    .logo-subtitle span {
-      font-size: 0.65rem;
-      font-weight: 900;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-charcoal);
-      line-height: 1.2;
-    }
-    
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .btn {
-      padding: 0.5rem 1.5rem;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-      border: none;
-    }
-    
-    .btn-primary {
-      background: var(--color-science-red);
-      color: white;
-    }
-    
-    .btn-primary:hover {
-      background: #b52525;
-    }
-    
-    .btn-outline {
-      border: 1px solid var(--color-charcoal);
-      background: transparent;
-      color: var(--color-charcoal);
-    }
-    
-    .btn-outline:hover {
-      background: var(--color-charcoal);
-      color: white;
-    }
-    
-    /* Navigation */
-    nav {
-      background: white;
-      border-bottom: 1px solid var(--color-gray-300);
-    }
-    
-    .nav-content {
-      max-width: 72rem;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
-    nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-    }
-    
-    .nav-item {
-      border-right: 1px solid var(--color-gray-300);
-      padding: 0.75rem 1.5rem;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-charcoal-light);
-      transition: color 0.2s;
-    }
-    
-    .nav-item:last-child { border-right: none; }
-    .nav-item:hover { color: var(--color-science-red); }
-    .nav-item.active { color: var(--color-science-red); }
-    
-    /* Hero */
-    .hero {
-      background: white;
-      padding: 4rem 0;
-      text-align: center;
-      border-bottom: 1px solid var(--color-gray-300);
-    }
-    
-    .hero-slogan {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      color: var(--color-charcoal);
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-    }
-    
-    .hero-slogan-en {
-      font-size: 1.125rem;
-      color: var(--color-charcoal-light);
-      font-style: italic;
-      margin-bottom: 1rem;
-    }
-    
-    .hero-tagline {
-      font-size: 0.75rem;
-      color: var(--color-charcoal-light);
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      margin-bottom: 2rem;
-    }
-    
-    .hero-description {
-      max-width: 48rem;
-      margin: 0 auto 2rem;
-      color: var(--color-charcoal);
-      line-height: 1.8;
-      font-size: 1rem;
-    }
-    
-    /* Main */
-    main {
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 4rem;
-    }
-    
-    /* Sections Grid */
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: 1.75rem;
-      text-align: center;
-      margin-bottom: 1rem;
-      color: var(--color-charcoal);
-      font-weight: 400;
-    }
-    
-    .section-subtitle {
-      text-align: center;
-      color: var(--color-charcoal-light);
-      margin-bottom: 3rem;
-      font-size: 0.875rem;
-    }
-    
-    .sections-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-bottom: 4rem;
-    }
-    
-    .section-card {
-      background: white;
-      border: 1px solid var(--color-gray-300);
-      padding: 2rem;
-      transition: all 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .section-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: var(--color-accent-gold);
-    }
-    
-    .section-card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transform: translateX(4px);
-    }
-    
-    .section-card h3 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      color: var(--color-charcoal);
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    
-    .section-card .en-name {
-      font-size: 0.75rem;
-      color: var(--color-charcoal-light);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-weight: 400;
-    }
-    
-    .section-card .tagline {
-      font-size: 0.875rem;
-      color: var(--color-charcoal-light);
-      font-style: italic;
-      margin-bottom: 1rem;
-      padding-left: 1rem;
-      border-left: 2px solid var(--color-gray-300);
-    }
-    
-    .section-card p {
-      font-size: 0.95rem;
-      color: var(--color-charcoal-light);
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-    
-    .section-icon {
-      font-size: 1.75rem;
-    }
-    
-    /* CTA */
-    .cta-section {
-      text-align: center;
-      padding: 3rem 0;
-      background: white;
-      border: 1px solid var(--color-gray-300);
-      margin-bottom: 3rem;
-    }
-    
-    .cta-button {
-      display: inline-block;
-      background: var(--color-accent-gold);
-      color: white;
-      padding: 0.875rem 2.5rem;
-      text-decoration: none;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-top: 1.5rem;
-      transition: background 0.2s;
-    }
-    
-    .cta-button:hover { background: #b18e26; }
-    
-    /* Footer */
-    footer {
-      background: var(--color-charcoal);
-      color: white;
-      padding: 3rem 0 2rem;
-      margin-top: 4rem;
-    }
-    
-    .footer-content {
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-    
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-      margin-bottom: 2rem;
-    }
-    
-    .footer-section h4 {
-      font-size: 0.75rem;
-      margin-bottom: 1rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-weight: 600;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      padding-bottom: 0.5rem;
-    }
-    
-    .footer-section p, .footer-section a {
-      font-size: 0.875rem;
-      color: #aaa;
-      line-height: 2;
-      text-decoration: none;
-    }
-    
-    .footer-section a:hover { color: white; }
-    
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.7rem;
-      color: #888;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .logo-title { font-size: 2.5rem; }
-      .logo-subtitle { height: 2.5rem; }
-      .logo-subtitle span { font-size: 0.55rem; }
-      .hero-slogan { font-size: 1.5rem; }
-      .nav-item { padding: 0.75rem 1rem; font-size: 0.6rem; }
-      .header-content { flex-direction: column; text-align: center; }
-      .header-actions { justify-content: center; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
+  <!-- Sticky Bar（滚动时出现的黑色顶部栏） -->
+  <div class="sticky-bar" id="stickyBar">
+    <div class="sticky-bar-content">
+      <a href="index.html" class="sticky-bar-logo">W.A.S.T.E.</a>
+      <nav class="sticky-bar-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="sections.html">Sections</a>
+        <a href="submission-guidelines.html">Submit</a>
+        <a href="https://github.com/YupenBob/waste-journal" target="_blank">GitHub</a>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Sidebar Toggle -->
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">W.A.S.T.E.</div>
+      <p class="sidebar-tagline">One man's waste is another man's wisdom.</p>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="index.html">🏠 Home / 主页</a></li>
+        <li><a href="about.html">📖 About / 关于</a></li>
+        <li><a href="sections.html">🗑️ Sections / 栏目</a></li>
+        <li><a href="editorial-board.html">👥 Board / 编委</a></li>
+        <li><a href="submission-guidelines.html">📝 Submit / 投稿</a></li>
+        <li><a href="archive.html">📚 Archive / 存档</a></li>
+        <li><a href="faq.html">❓ FAQ / 常见问题</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">
+      <p><strong>Contact</strong></p>
+      <p>Email: york255@163.com</p>
+      <p style="margin-top: 1rem;"><strong>GitHub</strong></p>
+      <p>@YupenBob/waste-journal</p>
+      <p style="margin-top: 1rem; font-size: 0.65rem; color: #666;">© 2026 W.A.S.T.E. Journal<br>Highly Refined Rubbish</p>
+    </div>
+  </div>
+  
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  
   <!-- Top Bar -->
   <div class="top-bar">
     <div class="top-bar-content">
       <a href="submission-guidelines.html">Submit / 投稿</a>
       <a href="editorial-board.html">Board / 编委</a>
-      <a href="https://github.com/YupenBob/waste-journal">GitHub</a>
+      <a href="https://github.com/YupenBob/waste-journal" target="_blank">GitHub</a>
     </div>
   </div>
   
@@ -429,7 +84,7 @@
       </a>
       <div class="header-actions">
         <a href="submission-guidelines.html" class="btn btn-outline">Submit</a>
-        <a href="https://github.com/YupenBob/waste-journal" class="btn btn-primary">Join</a>
+        <a href="https://github.com/YupenBob/waste-journal" class="btn btn-primary" target="_blank">Join</a>
       </div>
     </div>
   </header>
@@ -448,23 +103,23 @@
       </ul>
     </div>
   </nav>
-  
-  <!-- Hero -->
-  <div class="hero">
-    <h2 class="hero-slogan chinese-serif">留存无用，存档荒诞</h2>
-    <p class="hero-slogan-en">"One man's waste is another man's wisdom."</p>
-    <p class="hero-tagline">Highly Refined Rubbish · Est. 2026</p>
-    <p class="hero-description">
-      W.A.S.T.E. (Worldwide Archive of Substandard Tech & Experiments) 是一本经（自）过（封）同（的）行（学）评（期）审（刊）的开放获取期刊，
-      致力于收录主流学术出版体系未能充分重视的技术文档与实验报告。
-    </p>
-    <p class="hero-description">
-      我们相信，每一个"失败"的实验背后，都藏着一个值得讲述的故事。
-    </p>
-    <a href="submission-guidelines.html" class="cta-button">Submit Your Paper</a>
-  </div>
-  
+
   <main>
+    <!-- Hero -->
+    <div class="hero">
+      <h2 class="hero-slogan chinese-serif">留存无用，存档荒诞</h2>
+      <p class="hero-slogan-en">"One man's waste is another man's wisdom."</p>
+      <p class="hero-tagline">Highly Refined Rubbish · Est. 2026</p>
+      <p class="hero-description">
+        W.A.S.T.E. (Worldwide Archive of Substandard Tech & Experiments) 是一本经（自）过（封）同（的）行（学）评（期）审（刊）的开放获取期刊，
+        致力于收录主流学术出版体系未能充分重视的技术文档与实验报告。
+      </p>
+      <p class="hero-description">
+        我们相信，每一个"失败"的实验背后，都藏着一个值得讲述的故事。
+      </p>
+      <a href="submission-guidelines.html" class="cta-button">Submit Your Paper</a>
+    </div>
+    
     <!-- Sections -->
     <h2 class="section-title">Sections</h2>
     <p class="section-subtitle">灵感来源于<strong>垃圾处理工业流程</strong>，每个栏目对应一种学术痛点</p>
@@ -521,7 +176,7 @@
       <a href="submission-guidelines.html" class="cta-button">View Guidelines</a>
     </div>
   </main>
-  
+
   <!-- Footer -->
   <footer>
     <div class="footer-content">
@@ -534,7 +189,6 @@
             "In an era of efficiency and perfection, someone has to build a monument for failures."
           </p>
         </div>
-        
         <div class="footer-section">
           <h4>Quick Links</h4>
           <p><a href="submission-guidelines.html">Submission Guidelines</a></p>
@@ -542,19 +196,19 @@
           <p><a href="about.html">About</a></p>
           <p><a href="https://github.com/YupenBob/waste-journal">GitHub Repository</a></p>
         </div>
-        
         <div class="footer-section">
           <h4>License</h4>
           <p>Code: MIT</p>
           <p>Content: CC BY-NC-SA 4.0</p>
         </div>
       </div>
-      
       <div class="footer-bottom">
         <p>© 2026 W.A.S.T.E. Journal — York, Editor-in-Chief</p>
         <p style="margin-top: 0.5rem;">"One man's waste is another man's wisdom."</p>
       </div>
     </div>
   </footer>
+  
+  <script src="js/main.js"></script>
 </body>
 </html>
