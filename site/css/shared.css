@@ -199,12 +199,12 @@ nav ul {
   top: -60px;
   left: 0;
   width: 100%;
-  background: var(--color-charcoal);
+  background: #000000 !important;
   color: white;
   padding: 0.75rem 0;
   z-index: 1000;
   transition: top 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .sticky-bar.visible {
@@ -218,6 +218,7 @@ nav ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: transparent !important;
 }
 
 .sticky-bar-logo {
