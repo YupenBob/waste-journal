@@ -233,6 +233,7 @@ nav ul {
 .sticky-bar-nav {
   display: flex;
   gap: 1.5rem;
+  background: transparent !important;
 }
 
 .sticky-bar-nav a {
