@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WASTE Journal</title>
+  <title>W.A.S.T.E. Journal</title>
   <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --color-paper: #f9f9f9;
@@ -24,75 +25,153 @@
       font-family: var(--font-sans);
       color: var(--color-charcoal);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     
     .chinese-serif { font-family: var(--font-serif); }
     
+    /* Top Bar */
+    .top-bar {
+      background: white;
+      border-bottom: 1px solid var(--color-gray-300);
+      padding: 0.5rem 0;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-charcoal-light);
+    }
+    
+    .top-bar-content {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.5rem;
+    }
+    
+    .top-bar a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .top-bar a:hover { color: var(--color-science-red); }
+    
     /* Header */
     header {
       background: white;
-      border-bottom: 4px solid var(--color-science-red);
-      padding: 2.5rem 0;
+      border-bottom: 4px solid var(--color-charcoal);
+      padding: 2rem 0;
     }
     
     .header-content {
       max-width: 72rem;
       margin: 0 auto;
       padding: 0 1.5rem;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
     }
     
-    .journal-title {
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .logo-title {
       font-family: var(--font-serif);
-      font-size: 3rem;
-      font-weight: 700;
-      letter-spacing: 0.3em;
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      color: var(--color-charcoal);
+    }
+    
+    .logo-subtitle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      height: 3.5rem;
+    }
+    
+    .logo-subtitle span {
+      font-size: 0.65rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--color-charcoal);
-      margin-bottom: 0.5rem;
+      line-height: 1.2;
     }
     
-    .journal-subtitle {
-      font-size: 0.75rem;
-      color: var(--color-charcoal-light);
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .btn {
+      padding: 0.5rem 1.5rem;
+      font-size: 0.65rem;
+      font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
     }
     
-    .journal-meta {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 1.5rem;
-      font-size: 0.65rem;
-      color: var(--color-charcoal-light);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .btn-primary {
+      background: var(--color-science-red);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #b52525;
+    }
+    
+    .btn-outline {
+      border: 1px solid var(--color-charcoal);
+      background: transparent;
+      color: var(--color-charcoal);
+    }
+    
+    .btn-outline:hover {
+      background: var(--color-charcoal);
+      color: white;
     }
     
     /* Navigation */
     nav {
       background: white;
       border-bottom: 1px solid var(--color-gray-300);
-      padding: 0;
     }
     
     .nav-content {
       max-width: 72rem;
       margin: 0 auto;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
     }
     
     nav ul {
       list-style: none;
       display: flex;
+      flex-wrap: wrap;
     }
     
     .nav-item {
       border-right: 1px solid var(--color-gray-300);
-      padding: 0.75rem 2rem;
+      padding: 0.75rem 1.5rem;
       font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.2em;
@@ -103,34 +182,36 @@
     
     .nav-item:last-child { border-right: none; }
     .nav-item:hover { color: var(--color-science-red); }
-    
-    /* Main */
-    main {
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 4rem;
-    }
+    .nav-item.active { color: var(--color-science-red); }
     
     /* Hero */
     .hero {
-      text-align: center;
+      background: white;
       padding: 4rem 0;
-      margin-bottom: 4rem;
+      text-align: center;
+      border-bottom: 1px solid var(--color-gray-300);
     }
     
     .hero-slogan {
       font-family: var(--font-serif);
-      font-size: 2.25rem;
+      font-size: 2rem;
       color: var(--color-charcoal);
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       font-weight: 400;
     }
     
     .hero-slogan-en {
-      font-size: 0.875rem;
+      font-size: 1.125rem;
       color: var(--color-charcoal-light);
-      letter-spacing: 0.2em;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-tagline {
+      font-size: 0.75rem;
+      color: var(--color-charcoal-light);
       text-transform: uppercase;
+      letter-spacing: 0.2em;
       margin-bottom: 2rem;
     }
     
@@ -139,6 +220,110 @@
       margin: 0 auto 2rem;
       color: var(--color-charcoal);
       line-height: 1.8;
+      font-size: 1rem;
+    }
+    
+    /* Main */
+    main {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    
+    /* Sections Grid */
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--color-charcoal);
+      font-weight: 400;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      color: var(--color-charcoal-light);
+      margin-bottom: 3rem;
+      font-size: 0.875rem;
+    }
+    
+    .sections-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .section-card {
+      background: white;
+      border: 1px solid var(--color-gray-300);
+      padding: 2rem;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .section-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--color-accent-gold);
+    }
+    
+    .section-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateX(4px);
+    }
+    
+    .section-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--color-charcoal);
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .section-card .en-name {
+      font-size: 0.75rem;
+      color: var(--color-charcoal-light);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 400;
+    }
+    
+    .section-card .tagline {
+      font-size: 0.875rem;
+      color: var(--color-charcoal-light);
+      font-style: italic;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--color-gray-300);
+    }
+    
+    .section-card p {
+      font-size: 0.95rem;
+      color: var(--color-charcoal-light);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    
+    .section-icon {
+      font-size: 1.75rem;
+    }
+    
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 3rem 0;
+      background: white;
+      border: 1px solid var(--color-gray-300);
+      margin-bottom: 3rem;
     }
     
     .cta-button {
@@ -157,115 +342,11 @@
     
     .cta-button:hover { background: #b18e26; }
     
-    /* Sections */
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      text-align: center;
-      margin-bottom: 3rem;
-      color: var(--color-charcoal);
-      font-weight: 400;
-    }
-    
-    .sections-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border-top: 1px solid var(--color-gray-300);
-      border-left: 1px solid var(--color-gray-300);
-      margin-bottom: 5rem;
-    }
-    
-    .section-card {
-      background: white;
-      padding: 2.5rem 2rem;
-      border-right: 1px solid var(--color-gray-300);
-      border-bottom: 1px solid var(--color-gray-300);
-      text-align: center;
-      transition: all 0.2s;
-    }
-    
-    .section-card:hover {
-      background: var(--color-amber-50);
-      border-color: var(--color-accent-gold);
-    }
-    
-    .section-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .section-card h3 {
-      font-family: var(--font-serif);
-      font-size: 1.125rem;
-      color: var(--color-charcoal);
-      margin-bottom: 0.75rem;
-      font-weight: 400;
-    }
-    
-    .section-card p {
-      font-size: 0.875rem;
-      color: var(--color-charcoal-light);
-      line-height: 1.7;
-    }
-    
-    /* Latest Papers */
-    .latest-papers {
-      background: white;
-      border: 1px solid var(--color-gray-300);
-      padding: 3rem;
-      margin-bottom: 4rem;
-    }
-    
-    .latest-papers h2 {
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      color: var(--color-charcoal);
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid var(--color-gray-300);
-      font-weight: 400;
-    }
-    
-    .paper-item {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--color-gray-300);
-    }
-    
-    .paper-item:last-child { border-bottom: none; }
-    
-    .paper-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--color-charcoal);
-      margin-bottom: 0.5rem;
-    }
-    
-    .paper-authors {
-      font-size: 0.875rem;
-      color: var(--color-charcoal-light);
-      margin-bottom: 0.75rem;
-    }
-    
-    .paper-meta {
-      display: flex;
-      gap: 2rem;
-      font-size: 0.75rem;
-      color: var(--color-charcoal-light);
-      letter-spacing: 0.05em;
-    }
-    
-    .paper-doi {
-      font-family: "Courier New", monospace;
-      background: #f5f5f5;
-      padding: 0.25rem 0.5rem;
-    }
-    
     /* Footer */
     footer {
       background: var(--color-charcoal);
       color: white;
-      padding: 3rem 0;
+      padding: 3rem 0 2rem;
       margin-top: 4rem;
     }
     
@@ -277,8 +358,9 @@
     
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 3rem;
+      margin-bottom: 2rem;
     }
     
     .footer-section h4 {
@@ -287,6 +369,8 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       font-weight: 600;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 0.5rem;
     }
     
     .footer-section p, .footer-section a {
@@ -301,50 +385,60 @@
     .footer-bottom {
       text-align: center;
       padding-top: 2rem;
-      margin-top: 2rem;
       border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
     
     /* Responsive */
     @media (max-width: 768px) {
-      .journal-title { font-size: 2rem; letter-spacing: 0.15em; }
-      .journal-meta { flex-wrap: wrap; gap: 1rem; }
-      .nav-item { padding: 0.75rem 1rem; font-size: 0.6rem; }
-      .sections-grid { grid-template-columns: 1fr; }
-      .section-card { border-right: none; }
-      .footer-grid { grid-template-columns: 1fr; }
-      main { padding: 2rem 1rem 3rem; }
-      .hero { padding: 2rem 0; }
+      .logo-title { font-size: 2.5rem; }
+      .logo-subtitle { height: 2.5rem; }
+      .logo-subtitle span { font-size: 0.55rem; }
       .hero-slogan { font-size: 1.5rem; }
-      .latest-papers { padding: 2rem 1.5rem; }
+      .nav-item { padding: 0.75rem 1rem; font-size: 0.6rem; }
+      .header-content { flex-direction: column; text-align: center; }
+      .header-actions { justify-content: center; }
     }
   </style>
 </head>
 <body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-content">
+      <a href="submission-guidelines.html">Submit / 投稿</a>
+      <a href="editorial-board.html">Board / 编委</a>
+      <a href="https://github.com/YupenBob/waste-journal">GitHub</a>
+    </div>
+  </div>
+  
+  <!-- Header -->
   <header>
     <div class="header-content">
-      <h1 class="journal-title">WASTE</h1>
-      <p class="journal-subtitle">Worldwide Archive of Substandard Tech & Experiments</p>
-      <div class="journal-meta">
-        <span>ISSN: Pending</span>
-        <span>•</span>
-        <span>Est. 2026</span>
-        <span>•</span>
-        <span>Open Access</span>
-        <span>•</span>
-        <span>Peer-Reviewed*</span>
+      <a href="index.html" class="logo">
+        <h1 class="logo-title">W.A.S.T.E.</h1>
+        <div class="logo-subtitle">
+          <span>Worldwide</span>
+          <span>Archive</span>
+          <span>Substandard</span>
+          <span>Tech</span>
+          <span>Experiments</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <a href="submission-guidelines.html" class="btn btn-outline">Submit</a>
+        <a href="https://github.com/YupenBob/waste-journal" class="btn btn-primary">Join</a>
       </div>
-      <p style="font-size: 0.6rem; color: #999; margin-top: 0.75rem; letter-spacing: 0.1em;">*Review process depends on editor-in-chief's coffee intake</p>
-      <p style="font-size: 0.65rem; color: var(--color-charcoal-light); margin-top: 1rem; letter-spacing: 0.1em;">Contact: york255@163.com</p>
     </div>
   </header>
   
+  <!-- Navigation -->
   <nav>
     <div class="nav-content">
       <ul>
-        <li class="nav-item"><a href="index.html" style="color: inherit; text-decoration: none;">Home</a></li>
+        <li class="nav-item active"><a href="index.html" style="color: inherit; text-decoration: none;">Home</a></li>
         <li class="nav-item"><a href="about.html" style="color: inherit; text-decoration: none;">About</a></li>
         <li class="nav-item"><a href="sections.html" style="color: inherit; text-decoration: none;">Sections</a></li>
         <li class="nav-item"><a href="editorial-board.html" style="color: inherit; text-decoration: none;">Board</a></li>
@@ -355,101 +449,97 @@
     </div>
   </nav>
   
-  <main id="home">
-    <div class="hero">
-      <h2 class="hero-slogan chinese-serif">留存无用，存档荒诞</h2>
-      <p class="hero-slogan-en">Conserve the Useless, Archive the Absurd</p>
-      <p class="hero-description">
-        WASTE 是一本经（自）过（封）同（的）行（学）评（期）审（刊）的开放获取期刊，
-        致力于收录主流学术出版体系未能充分重视的技术文档与实验报告。
-      </p>
-      <p class="hero-description">
-        我们相信，每一个"失败"的实验背后，都藏着一个值得讲述的故事。
-      </p>
-      <a href="submission-guidelines.html" class="cta-button">Submit Your Paper</a>
-    </div>
-    
-    <h2 class="section-title" id="sections">Sections</h2>
-    <p style="text-align: center; color: var(--color-charcoal-light); margin-bottom: 2rem; font-size: 0.875rem;">
-      灵感来源于<strong>垃圾处理工业流程</strong>，每个栏目对应一种学术痛点
+  <!-- Hero -->
+  <div class="hero">
+    <h2 class="hero-slogan chinese-serif">留存无用，存档荒诞</h2>
+    <p class="hero-slogan-en">"One man's waste is another man's wisdom."</p>
+    <p class="hero-tagline">Highly Refined Rubbish · Est. 2026</p>
+    <p class="hero-description">
+      W.A.S.T.E. (Worldwide Archive of Substandard Tech & Experiments) 是一本经（自）过（封）同（的）行（学）评（期）审（刊）的开放获取期刊，
+      致力于收录主流学术出版体系未能充分重视的技术文档与实验报告。
     </p>
+    <p class="hero-description">
+      我们相信，每一个"失败"的实验背后，都藏着一个值得讲述的故事。
+    </p>
+    <a href="submission-guidelines.html" class="cta-button">Submit Your Paper</a>
+  </div>
+  
+  <main>
+    <!-- Sections -->
+    <h2 class="section-title">Sections</h2>
+    <p class="section-subtitle">灵感来源于<strong>垃圾处理工业流程</strong>，每个栏目对应一种学术痛点</p>
+    
     <div class="sections-grid">
       <div class="section-card">
-        <div class="section-icon">🗑️</div>
-        <h3 class="chinese-serif">填埋场</h3>
-        <p style="font-size: 0.75rem; color: var(--color-charcoal-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Landfill · Negative Results</p>
-        <p>阴性结果与沉默数据。把"什么也没做出来"但设计严谨的研究找个坑埋了，立个碑。</p>
+        <h3><span class="section-icon">🗑️</span> 填埋场 <span class="en-name">Landfill</span></h3>
+        <p class="tagline">"把那些'没用'的垃圾找个坑埋了，立个碑。"</p>
+        <p><strong>阴性结果与沉默数据 (Negative Results)</strong></p>
+        <p>主流期刊只想要漂亮的阳性结果，导致无数科研打工人因为信息差，在同一个死胡同里重复撞墙。这个栏目专门收录逻辑严密、实验规范，但"什么也没做出来"的论文。</p>
       </div>
       
       <div class="section-card">
-        <div class="section-icon">🔥</div>
-        <h3 class="chinese-serif">焚化炉</h3>
-        <p style="font-size: 0.75rem; color: var(--color-charcoal-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Incinerator · Failed Replications</p>
-        <p>范式解构与反向验证。一把火烧掉那些看着光鲜亮丽，实则一戳就破的塑料垃圾。</p>
+        <h3><span class="section-icon">🔥</span> 焚化炉 <span class="en-name">Incinerator</span></h3>
+        <p class="tagline">"一把火烧掉那些看着光鲜亮丽，实则一戳就破的塑料垃圾。"</p>
+        <p><strong>范式解构与反向验证 (Failed Replications)</strong></p>
+        <p>专门刊登针对现有文献的"复现失败"报告，以及对学术圈 P-hacking 等统计学粉饰行为的无情拆解。不讲情面，只讲数据。</p>
       </div>
       
       <div class="section-card">
-        <div class="section-icon">♻️</div>
-        <h3 class="chinese-serif">废品回收站</h3>
-        <p style="font-size: 0.75rem; color: var(--color-charcoal-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Recycling Plant · Historical Salvage</p>
-        <p>跨界拾荒与历史打捞。捡破烂，看看别人不要的垃圾里有没有宝贝。</p>
+        <h3><span class="section-icon">♻️</span> 废品回收站 <span class="en-name">Recycling Plant</span></h3>
+        <p class="tagline">"捡破烂，看看别人不要的垃圾里有没有宝贝。"</p>
+        <p><strong>跨界拾荒与历史打捞 (Historical Salvage)</strong></p>
+        <p>很多绝妙的 Idea 仅仅因为"不符合当前热点"或"不属于本学科范畴"而被顶级期刊扫地出门。这个栏目鼓励学者把被拒稿的"学术边角料"拿出来，用跨学科的视角重新包装。</p>
       </div>
       
       <div class="section-card">
-        <div class="section-icon">🔬</div>
-        <h3 class="chinese-serif">微塑料</h3>
-        <p style="font-size: 0.75rem; color: var(--color-charcoal-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Microplastics · Micro-Contributions</p>
-        <p>极简学术与微小贡献。严格限制一页半，只展示"一个图 + 一个微小结论"。</p>
+        <h3><span class="section-icon">🔬</span> 微塑料 <span class="en-name">Microplastics</span></h3>
+        <p class="tagline">"无孔不入、无处不在，看着烦人但你又无法忽略。"</p>
+        <p><strong>极简学术与微小贡献 (Micro-Contributions)</strong></p>
+        <p>精准反讽学术圈深恶痛绝的"切香肠（Salami Slicing）"灌水行为。严格限制篇幅（不得超过一页半），剥离所有假大空的背景废话，只允许展示"一个图 + 一个极其微小的结论"。</p>
       </div>
       
       <div class="section-card">
-        <div class="section-icon">☢️</div>
-        <h3 class="chinese-serif">放射性废料</h3>
-        <p style="font-size: 0.75rem; color: var(--color-charcoal-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Radioactive Waste · Dangerous Conjectures</p>
-        <p>危险思想与未定论。逻辑自洽但离经叛道，目前无法处理，封存交给未来。</p>
+        <h3><span class="section-icon">☢️</span> 放射性废料 <span class="en-name">Radioactive Waste</span></h3>
+        <p class="tagline">"极度危险，目前人类无法处理，只能封存起来交给未来。"</p>
+        <p><strong>危险思想与未定论 (Dangerous Conjectures)</strong></p>
+        <p>专门收录那些逻辑自洽，但结论过于离经叛道、充满争议、甚至可能颠覆现有学科基础的假说。它们在当前的范式下"有害"且无法被证实或证伪，但或许能在未来引发学术界的核聚变。</p>
       </div>
     </div>
     
     <p style="text-align: center; margin-top: 2rem;">
-      <a href="sections.html" style="color: var(--color-accent-gold); text-decoration: none; border-bottom: 1px solid var(--color-accent-gold); padding-bottom: 0.25rem;">View All Sections →</a>
+      <a href="sections.html" style="color: var(--color-accent-gold); text-decoration: none; border-bottom: 1px solid var(--color-accent-gold); padding-bottom: 0.25rem; font-size: 0.875rem;">View All Sections →</a>
     </p>
     
-    <div class="latest-papers" id="latest">
-      <h2>Call for Papers - Issue 001</h2>
-      <div class="paper-item">
-        <p class="paper-title">Submission Deadline: March 31, 2026</p>
-        <p class="paper-authors">Submit to: waste-journal@example.com</p>
-        <div class="paper-meta">
-          <span>Format: LaTeX / Word / Handwritten (photo accepted)</span>
-          <span>APC: No cash (3D printing filament accepted)</span>
-          <span class="paper-doi">DOI: 10.waste/2026.001</span>
-        </div>
-      </div>
-      
-      <div class="paper-item">
-        <p class="paper-title">Review Period: 7-14 business days</p>
-        <p class="paper-authors">(Actual timeline depends on editor's coffee consumption)</p>
-        <div class="paper-meta">
-          <span>☀️ Sunny days: higher acceptance rate</span>
-          <span>🌕 Full moon: +10% acceptance bonus</span>
-        </div>
-      </div>
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2 class="chinese-serif" style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1rem;">Call for Papers — Issue 001</h2>
+      <p style="color: var(--color-charcoal-light); margin-bottom: 1.5rem;">首期征稿进行中 | Deadline: March 31, 2026</p>
+      <p style="font-size: 0.875rem; color: var(--color-charcoal-light);">
+        <strong>投稿邮箱</strong>：york255@163.com<br>
+        <strong>邮件标题</strong>：【WASTE 投稿】+ 你的论文标题
+      </p>
+      <a href="submission-guidelines.html" class="cta-button">View Guidelines</a>
     </div>
   </main>
   
-  <footer id="about">
+  <!-- Footer -->
+  <footer>
     <div class="footer-content">
       <div class="footer-grid">
         <div class="footer-section">
           <h4>Contact</h4>
           <p>Email: york255@163.com</p>
           <p>GitHub: @YupenBob/waste-journal</p>
+          <p style="margin-top: 1rem; font-size: 0.75rem; color: #888;">
+            "In an era of efficiency and perfection, someone has to build a monument for failures."
+          </p>
         </div>
         
         <div class="footer-section">
           <h4>Quick Links</h4>
-          <p><a href="#submit">Submission Guidelines</a></p>
-          <p><a href="#sections">Sections</a></p>
+          <p><a href="submission-guidelines.html">Submission Guidelines</a></p>
+          <p><a href="sections.html">Sections</a></p>
+          <p><a href="about.html">About</a></p>
           <p><a href="https://github.com/YupenBob/waste-journal">GitHub Repository</a></p>
         </div>
         
@@ -457,12 +547,12 @@
           <h4>License</h4>
           <p>Code: MIT</p>
           <p>Content: CC BY-NC-SA 4.0</p>
-          <p style="margin-top: 0.5rem; font-size: 0.75rem; color: #888;">"In an era of efficiency and perfection, someone has to build a monument for failures."</p>
         </div>
       </div>
       
       <div class="footer-bottom">
-        <p>© 2026 WASTE Journal — York, Editor-in-Chief</p>
+        <p>© 2026 W.A.S.T.E. Journal — York, Editor-in-Chief</p>
+        <p style="margin-top: 0.5rem;">"One man's waste is another man's wisdom."</p>
       </div>
     </div>
   </footer>
