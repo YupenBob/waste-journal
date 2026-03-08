@@ -236,16 +236,21 @@ nav ul {
 }
 
 .sticky-bar-nav a {
-  color: #aaa;
+  color: #aaa !important;
   text-decoration: none;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: color 0.2s;
+  background: transparent !important;
+  padding: 0.5rem 0.75rem;
 }
 
-.sticky-bar-nav a:hover { color: white; }
+.sticky-bar-nav a:hover { 
+  color: #ffffff !important;
+  background: rgba(255,255,255,0.1) !important;
+}
 
 /* ===================================
    Sidebar（侧边栏）
