@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - W.A.S.T.E. Journal</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- 共享 Header 组件 -->
+  @@HEADER@@
+
+  <main>
+    <h1 class="page-title">About W.A.S.T.E.</h1>
+    
+    <div class="content-section">
+      <h2>Journal Mission</h2>
+      <p class="chinese-serif"><strong>留存无用，存档荒诞。</strong></p>
+      <p><strong>Conserve the Useless, Archive the Absurd.</strong></p>
+      <p style="margin-top: 1.5rem;">
+        W.A.S.T.E. (Worldwide Archive of Substandard Tech & Experiments) 是一本经（自）过（封）同（的）行（学）评（期）审（刊）的开放获取期刊，
+        致力于收录主流学术出版体系未能充分重视的技术文档与实验报告。
+      </p>
+      <p>
+        在学术出版日益追求"影响力"和"引用率"的今天，大量有价值的"失败"研究被埋没。
+        我们相信，每一个"失败"的实验背后，都藏着一个值得讲述的故事——也许是代码在本地跑得好好的，一部署就崩；
+        也许是花了一周写的爬虫，爬回来的数据完全用不上；也许是用超级计算机算了三天，发现公式抄错了。
+      </p>
+      <p>
+        W.A.S.T.E. 为这些"学术孤儿"提供一个归宿，让后来的研究者少走弯路，也让"失败"本身成为知识的一部分。
+      </p>
+    </div>
+    
+    <div class="content-section">
+      <h2>Scope & Sections</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Sections</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Possibilities</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Open Access</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">0</div>
+          <div class="stat-label">APC (Cash)</div>
+        </div>
+      </div>
+      
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">🗑️ 填埋场 (Landfill)</h3>
+      <p>阴性结果与沉默数据。专门收录逻辑严密、实验规范，但"什么也没做出来"的论文。</p>
+      
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">🔥 焚化炉 (Incinerator)</h3>
+      <p>范式解构与反向验证。专门刊登针对现有文献的"复现失败"报告，以及对学术圈 P-hacking 等统计学粉饰行为的无情拆解。</p>
+      
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">♻️ 废品回收站 (Recycling Plant)</h3>
+      <p>跨界拾荒与历史打捞。鼓励学者把被拒稿的"学术边角料"拿出来，用跨学科的视角重新包装。</p>
+      
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">🔬 微塑料 (Microplastics)</h3>
+      <p>极简学术与微小贡献。严格限制篇幅（不得超过一页半），剥离所有假大空的背景废话，只允许展示"一个图 + 一个极其微小的结论"。</p>
+      
+      <h3 style="font-family: var(--font-serif); font-size: 1.125rem; margin: 1.5rem 0 1rem; color: var(--color-charcoal);">☢️ 放射性废料 (Radioactive Waste)</h3>
+      <p>危险思想与未定论。专门收录那些逻辑自洽，但结论过于离经叛道、充满争议、甚至可能颠覆现有学科基础的假说。</p>
+    </div>
+    
+    <div class="content-section">
+      <h2>Editorial Philosophy</h2>
+      <p><strong>我们的评审标准：</strong></p>
+      <ul>
+        <li><strong>真实性</strong>：实验必须真实存在，失败必须真实发生</li>
+        <li><strong>教育意义</strong>：能让后来者避免同样的坑</li>
+        <li><strong>故事性</strong>：破防过程描述越生动越好</li>
+        <li><strong>幽默感</strong>：能让人会心一笑的失败更有价值</li>
+      </ul>
+      <p style="margin-top: 1.5rem;"><strong>评审流程说明：</strong></p>
+      <p>本刊采用"双盲评审"制度（作者不知道审稿人是谁，审稿人……其实主编看心情决定）。审稿周期约为 7-14 个工作日，实际时长取决于：</p>
+      <ul>
+        <li>当天天气（晴天录用率更高）</li>
+        <li>系统内存占用（内存充足时更宽容）</li>
+        <li>AI 随机生成的评审意见</li>
+        <li>月球相位（满月时录用率 +10%）</li>
+        <li>主编当天喝了几杯咖啡</li>
+      </ul>
+    </div>
+    
+    <div class="content-section">
+      <h2>Open Access & License</h2>
+      <p><strong>开放获取政策：</strong></p>
+      <p>W.A.S.T.E. 是一本完全开放获取的期刊。所有发表的内容都可以免费阅读、下载、复制、传播。</p>
+      <p><strong>许可证：</strong></p>
+      <ul>
+        <li><strong>网站代码</strong>：MIT License</li>
+        <li><strong>期刊内容</strong>：CC BY-NC-SA 4.0（欢迎整活，但请署名）</li>
+      </ul>
+      <p><strong>版面费（Article Processing Charge）：</strong></p>
+      <p>不收现金。接受以下支付方式：</p>
+      <ul>
+        <li>一卷没用完的 3D 打印耗材</li>
+        <li>一段能跑但没用的 Python 代码</li>
+        <li>帮主编给服务器拉根网线</li>
+        <li>一封真诚的感谢信</li>
+      </ul>
+    </div>
+    
+    <div class="content-section">
+      <h2>Contact</h2>
+      <p><strong>投稿邮箱</strong>：york255@163.com</p>
+      <p><strong>GitHub</strong>：https://github.com/YupenBob/waste-journal</p>
+      <p><strong>主编</strong>：York</p>
+      <p style="margin-top: 1.5rem; font-style: italic; color: var(--color-charcoal-light);">
+        "在这个追求效率和完美的时代，总得有人给失败品建个纪念碑。"
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>Email: york255@163.com</p>
+          <p>GitHub: @YupenBob/waste-journal</p>
+          <p style="margin-top: 1rem; font-size: 0.75rem; color: #888;">
+            "In an era of efficiency and perfection, someone has to build a monument for failures."
+          </p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <p><a href="submission-guidelines.html">Submission Guidelines</a></p>
+          <p><a href="sections.html">Sections</a></p>
+          <p><a href="about.html">About</a></p>
+          <p><a href="https://github.com/YupenBob/waste-journal">GitHub Repository</a></p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>License</h4>
+          <p>Code: MIT</p>
+          <p>Content: CC BY-NC-SA 4.0</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2026 W.A.S.T.E. Journal — York, Editor-in-Chief</p>
+        <p style="margin-top: 0.5rem;">"One man's waste is another man's wisdom."</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
