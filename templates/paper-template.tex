@@ -1,0 +1,280 @@
+% ===================================
+% W.A.S.T.E. Journal - LaTeX 论文模板
+% ===================================
+% 版本：1.0 (2026-03-08)
+% 使用说明：
+%   1. 使用 Overleaf 或本地 LaTeX 编辑器
+%   2. 替换示例内容为你的论文
+%   3. 编译生成 PDF
+% ===================================
+
+\documentclass[a4paper,12pt]{article}
+
+% ===================================
+% 基础包
+% ===================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+
+% ===================================
+% 页面设置
+% ===================================
+\geometry{
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm,
+  headheight=15pt,
+  footskip=1cm
+}
+
+% ===================================
+% 颜色定义 (W.A.S.T.E. 主题色)
+% ===================================
+\definecolor{waste-charcoal}{RGB}{51,51,51}
+\definecolor{waste-gold}{RGB}{197,160,47}
+\definecolor{waste-red}{RGB}{209,47,47}
+\definecolor{waste-gray}{RGB}{128,128,128}
+
+% ===================================
+% 页头页脚设置
+% ===================================
+\pagestyle{fancy}
+\fancyhf{} % 清空所有页头页脚
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+% 页头：左侧 Logo + 期刊名，右侧栏目名
+\fancyhead[L]{%
+  \textbf{\Large\color{waste-charcoal} W.A.S.T.E.}\quad%
+  \small\color{waste-gray}Journal%
+}
+\fancyhead[R]{%
+  \small\color{waste-gold}\leftmark%
+}
+
+% 页脚：左侧作者，中间页码，右侧 DOI
+\fancyfoot[L]{\small\color{waste-gray}\thepage}
+\fancyfoot[C]{\small\color{waste-gray}W.A.S.T.E. Journal \textbullet\ Vol. 1, No. 1}
+\fancyfoot[R]{\small\color{waste-gray}\texttt{doi:10.xxxx/waste.yyyy.xxxx}}
+
+% 首页不显示页眉页脚
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+% ===================================
+% 标题格式
+% ===================================
+\titleformat{\section}{\large\bfseries\color{waste-charcoal}}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{waste-charcoal}}{\subsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\itshape\color{waste-charcoal}}{\subsubsection}{1em}{}
+
+% ===================================
+% 超链接设置
+% ===================================
+\hypersetup{
+  colorlinks=true,
+  linkcolor=waste-red,
+  filecolor=waste-gold,
+  urlcolor=waste-gold,
+  citecolor=waste-red,
+}
+
+% ===================================
+% 自定义命令
+% ===================================
+% 栏目命令
+\newcommand{\wastesection}[1]{%
+  \textcolor{waste-gold}{\textbf{#1}}%
+}
+
+% DOI 命令
+\newcommand{\doi}[1]{%
+  \texttt{\href{https://doi.org/#1}{doi:#1}}%
+}
+
+% 投稿日期命令
+\newcommand{\submitted}[1]{%
+  \small\color{waste-gray}Submitted: #1%
+}
+
+% ===================================
+% 论文元数据（请修改此处）
+% ===================================
+\title{%
+  \vspace{-2cm}%
+  \textbf{\Huge\color{waste-charcoal} 你的论文标题}\\[0.5cm]
+  \large\color{waste-gray}Your Paper Title in English%
+}
+
+\author{%
+  \textbf{作者姓名}\thanks{Corresponding author: \texttt{email@example.com}}\\%
+  \small 机构名称，城市，国家\\[0.3cm]%
+  \textbf{Co-Author Name}\\%
+  \small Another Institution, City, Country%
+}
+
+\date{%
+  \wastesection{栏目名：填埋场 / Landfill}\\[0.2cm]%
+  \submitted{2026-03-08}%
+}
+
+% ===================================
+% 正文开始
+% ===================================
+\begin{document}
+
+% 首页
+\maketitle
+\thispagestyle{plain} % 首页不使用页眉页脚
+
+% ===================================
+% 摘要
+% ===================================
+\begin{abstract}
+\noindent 这里是摘要内容。摘要应该简洁明了地描述你的研究背景、方法、结果和结论。
+对于 W.A.S.T.E. Journal，我们特别欢迎那些"失败"但具有教育意义的研究。
+
+\vspace{0.5cm}
+\noindent\textbf{关键词：} 关键词 1 \textbullet\ 关键词 2 \textbullet\ 关键词 3 \textbullet\ 关键词 4
+
+\vspace{0.5cm}
+\noindent\textbf{中图分类号：} XXXX \quad \textbf{文献标识码：} A
+\end{abstract}
+
+% ===================================
+% 正文
+% ===================================
+\section{引言}
+
+这里是引言部分。介绍研究背景、问题陈述和研究动机。
+
+\subsection{研究背景}
+
+详细说明研究背景，包括相关工作和现有研究的不足之处。
+
+\subsection{问题陈述}
+
+清晰描述你要解决的问题，以及为什么这个问题重要（或者为什么它不重要但有趣）。
+
+\section{方法}
+
+详细描述你的研究方法、实验设计和实施过程。
+
+\subsection{实验设计}
+
+\begin{itemize}[leftmargin=*]
+  \item 实验环境：描述硬件/软件配置
+  \item 数据集：说明数据来源和规模
+  \item 评估指标：列出使用的评估标准
+\end{itemize}
+
+\subsection{实施细节}
+
+提供足够的细节以便其他人可以复现你的"失败"。
+
+\section{结果与讨论}
+
+\subsection{实验结果}
+
+展示你的结果，即使它们是阴性的或"失败"的。
+
+\begin{table}[h]
+\centering
+\caption{实验结果对比}
+\label{tab:results}
+\begin{tabular}{lcc}
+\toprule
+方法 & 准确率 (\%) & 备注 \\
+\midrule
+Baseline & 85.2 & 参考文献 [1] \\
+Our Method & 42.1 & 完全失败 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{失败分析}
+
+\textbf{这是 W.A.S.T.E. Journal 最看重的部分！} 详细分析为什么失败了，从中学到了什么。
+
+\section{结论}
+
+总结你的研究发现，即使结论是"此路不通"。
+
+\section*{致谢}
+
+感谢所有帮助过你的人，包括那些试图帮你但也没成功的。
+
+% ===================================
+% 参考文献
+% ===================================
+\begin{thebibliography}{99}
+
+\bibitem{ref1}
+Author, A. (2020).
+\textit{Title of the Paper}.
+Journal Name, 1(1), 1-10.
+
+\bibitem{ref2}
+Author, B. and Author, C. (2019).
+\textit{Another Important Work}.
+Conference Proceedings, pp. 100-200.
+
+\end{thebibliography}
+
+% ===================================
+% 附录（可选）
+% ===================================
+\appendix
+\section{附录 A：补充材料}
+
+这里可以放置额外的数据、代码片段或详细推导。
+
+% ===================================
+% 作者贡献声明
+% ===================================
+\section*{作者贡献}
+
+\textbf{作者 A：} 概念设计、实验实施、论文撰写 \\
+\textbf{作者 B：} 数据分析、图表制作、论文修订
+
+% ===================================
+% 利益冲突声明
+% ===================================
+\section*{利益冲突声明}
+
+作者声明无利益冲突。
+
+% ===================================
+% 数据可用性声明
+% ===================================
+\section*{数据可用性声明}
+
+本研究的数据和代码已在 GitHub 公开：\url{https://github.com/your-repo}
+
+% ===================================
+% 许可证声明
+% ===================================
+\vspace{2cm}
+\begin{center}
+\small\color{waste-gray}
+\textcopyright\ 2026 作者。本文采用 CC BY-NC-SA 4.0 许可证发布。\\
+W.A.S.T.E. Journal \textbullet\ Worldwide Archive of Substandard Tech \& Experiments
+\end{center}
+
+\end{document}
