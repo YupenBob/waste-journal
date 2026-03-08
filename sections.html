@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sections - WASTE Journal</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="/>
+  <style>
+    :root { --color-paper: #f9f9f9; --color-charcoal: #333; --color-charcoal-light: #555; --color-accent-gold: #c5a02f; --color-science-red: #d12f2f; --color-gray-300: #e0e0e0; --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; --font-serif: "Playfair Display", "Noto Serif SC", serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--color-paper); font-family: var(--font-sans); color: var(--color-charcoal); line-height: 1.6; }
+    .chinese-serif { font-family: var(--font-serif); }
+    header { background: white; border-bottom: 4px solid var(--color-science-red); padding: 2.5rem 0; }
+    .header-content { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; text-align: center; }
+    .journal-title { font-family: var(--font-serif); font-size: 3rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-charcoal); margin-bottom: 0.5rem; }
+    .journal-subtitle { font-size: 0.75rem; color: var(--color-charcoal-light); letter-spacing: 0.15em; text-transform: uppercase; }
+    nav { background: white; border-bottom: 1px solid var(--color-gray-300); padding: 0; }
+    .nav-content { max-width: 72rem; margin: 0 auto; display: flex; justify-content: center; }
+    nav ul { list-style: none; display: flex; }
+    .nav-item { border-right: 1px solid var(--color-gray-300); padding: 0.75rem 2rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal-light); transition: color 0.2s; }
+    .nav-item:last-child { border-right: none; }
+    .nav-item:hover { color: var(--color-science-red); }
+    .nav-item.active { color: var(--color-science-red); border-bottom: 2px solid var(--color-science-red); }
+    main { max-width: 72rem; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .page-title { font-family: var(--font-serif); font-size: 2.25rem; text-align: center; margin-bottom: 2rem; color: var(--color-charcoal); font-weight: 400; }
+    .page-subtitle { text-align: center; color: var(--color-charcoal-light); margin-bottom: 3rem; font-size: 1.125rem; line-height: 1.8; }
+    .section-intro { background: white; border: 1px solid var(--color-gray-300); padding: 2.5rem; margin-bottom: 3rem; text-align: center; }
+    .section-intro p { font-size: 1.125rem; line-height: 1.8; color: var(--color-charcoal); }
+    .section-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
+    .section-card { background: white; border: 1px solid var(--color-gray-300); padding: 2.5rem; transition: all 0.2s; position: relative; overflow: hidden; }
+    .section-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--color-accent-gold); }
+    .section-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateX(4px); }
+    .section-card h2 { font-family: var(--font-serif); font-size: 1.75rem; margin-bottom: 0.5rem; color: var(--color-charcoal); display: flex; align-items: center; gap: 1rem; }
+    .section-card .en-name { font-size: 1rem; color: var(--color-charcoal-light); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 400; }
+    .section-card .tagline { font-size: 0.875rem; color: var(--color-charcoal-light); font-style: italic; margin-bottom: 1.5rem; padding-left: 1rem; border-left: 2px solid var(--color-gray-300); }
+    .section-card h3 { font-size: 1rem; font-weight: 600; color: var(--color-charcoal); margin: 1.5rem 0 0.75rem; }
+    .section-card p { line-height: 1.8; color: var(--color-charcoal-light); margin-bottom: 1rem; }
+    .section-card ul { margin-left: 2rem; margin-bottom: 1rem; }
+    .section-card li { margin-bottom: 0.5rem; line-height: 1.7; color: var(--color-charcoal-light); }
+    .icon { font-size: 2rem; }
+    .review-process { background: white; border: 1px solid var(--color-gray-300); padding: 2.5rem; margin-top: 3rem; }
+    .review-process h2 { font-family: var(--font-serif); font-size: 1.75rem; text-align: center; margin-bottom: 2rem; }
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .step { text-align: center; padding: 1.5rem; background: var(--color-paper); border: 1px solid var(--color-gray-300); }
+    .step-number { width: 50px; height: 50px; border-radius: 50%; background: var(--color-accent-gold); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem; margin: 0 auto 1rem; }
+    .step h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .step p { font-size: 0.875rem; color: var(--color-charcoal-light); }
+    footer { background: var(--color-charcoal); color: white; padding: 3rem 0; margin-top: 4rem; }
+    .footer-content { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .footer-section h4 { font-size: 0.75rem; margin-bottom: 1rem; letter-spacing: 0.15em; text-transform: uppercase; }
+    .footer-section p, .footer-section a { font-size: 0.875rem; color: #aaa; line-height: 2; text-decoration: none; }
+    .footer-section a:hover { color: white; }
+    .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: #888; }
+    @media (max-width: 768px) { .journal-title { font-size: 2rem; letter-spacing: 0.15em; } .nav-item { padding: 0.75rem 1rem; font-size: 0.6rem; } .section-card h2 { flex-direction: column; gap: 0.5rem; } .footer-grid { grid-template-columns: 1fr; } main { padding: 2rem 1rem 3rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1 class="journal-title">WASTE</h1>
+      <p class="journal-subtitle">Worldwide Archive of Substandard Tech & Experiments</p>
+    </div>
+  </header>
+  
+  <nav>
+    <div class="nav-content">
+      <ul>
+        <li class="nav-item"><a href="index.html" style="color: inherit; text-decoration: none;">Home</a></li>
+        <li class="nav-item"><a href="about.html" style="color: inherit; text-decoration: none;">About</a></li>
+        <li class="nav-item active"><a href="sections.html" style="color: inherit; text-decoration: none;">Sections</a></li>
+        <li class="nav-item"><a href="editorial-board.html" style="color: inherit; text-decoration: none;">Board</a></li>
+        <li class="nav-item"><a href="submission-guidelines.html" style="color: inherit; text-decoration: none;">Submit</a></li>
+        <li class="nav-item"><a href="archive.html" style="color: inherit; text-decoration: none;">Archive</a></li>
+        <li class="nav-item"><a href="faq.html" style="color: inherit; text-decoration: none;">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main>
+    <h1 class="page-title">Sections</h1>
+    <p class="page-subtitle chinese-serif">"垃圾是放错位置的资源"<br>—— 但在这里，垃圾就是垃圾，只不过是有价值的垃圾</p>
+    
+    <div class="section-intro">
+      <p>
+        WASTE Journal 的栏目设置灵感来源于<strong>垃圾处理工业流程</strong>，
+        每一个栏目都对应一种真实的学术痛点。
+        我们相信，"失败"的研究不是垃圾，而是被错放的学术资源。
+      </p>
+    </div>
+    
+    <div class="section-grid">
+      <!-- 填埋场 -->
+      <div class="section-card">
+        <h2><span class="icon">🗑️</span> 填埋场 <span class="en-name">Landfill</span></h2>
+        <p class="tagline">"把那些'没用'的垃圾找个坑埋了，立个碑。"</p>
+        
+        <h3>📌 定位：阴性结果与沉默数据 (Negative Results)</h3>
+        <p>主流期刊只想要漂亮的阳性结果（Positive Results），导致无数科研打工人因为信息差，在同一个死胡同里重复撞墙。</p>
+        <p>这个栏目专门收录逻辑严密、实验规范，但<strong>"什么也没做出来"</strong>的论文。把科学探索中的无效路径标记出来，本身就是极其伟大的学术贡献。</p>
+        
+        <h3>📋 收稿范围</h3>
+        <ul>
+          <li>设计严谨但结果为阴性的实验研究</li>
+          <li>验证了某条路走不通的系统性尝试</li>
+          <li>因"无显著差异"被拒稿的完整研究</li>
+          <li>数据完整但结论"无聊"的调查分析</li>
+        </ul>
+        
+        <h3>🎯 投稿建议</h3>
+        <ul>
+          <li>详细说明研究设计和方法论</li>
+          <li>解释为什么这个"阴性结果"有价值</li>
+          <li>讨论对后续研究的启示</li>
+        </ul>
+      </div>
+      
+      <!-- 焚化炉 -->
+      <div class="section-card">
+        <h2><span class="icon">🔥</span> 焚化炉 <span class="en-name">Incinerator</span></h2>
+        <p class="tagline">"一把火烧掉那些看着光鲜亮丽，实则一戳就破的塑料垃圾。"</p>
+        
+        <h3>📌 定位：范式解构与反向验证 (Failed Replications)</h3>
+        <p>专门刊登针对现有文献的<strong>"复现失败"报告</strong>，以及对学术圈 P-hacking（P 值操纵）等统计学粉饰行为的无情拆解。</p>
+        <p>不讲情面，只讲数据，专门挑战那些被广泛引用但根基不稳的"神级论文"。</p>
+        
+        <h3>📋 收稿范围</h3>
+        <ul>
+          <li>无法复现已发表研究的详细报告</li>
+          <li>对经典论文的方法论质疑与验证</li>
+          <li>统计学操纵（P-hacking）的案例分析</li>
+          <li>学术不端行为的系统性揭露</li>
+        </ul>
+        
+        <h3>🎯 投稿建议</h3>
+        <ul>
+          <li>提供完整的复现过程和代码</li>
+          <li>对比原始研究与复现结果的差异</li>
+          <li>保持学术严谨，避免人身攻击</li>
+        </ul>
+      </div>
+      
+      <!-- 废品回收站 -->
+      <div class="section-card">
+        <h2><span class="icon">♻️</span> 废品回收站 <span class="en-name">Recycling Plant</span></h2>
+        <p class="tagline">"捡破烂，看看别人不要的垃圾里有没有宝贝。"</p>
+        
+        <h3>📌 定位：跨界拾荒与历史打捞 (Historical Salvage)</h3>
+        <p>很多绝妙的 Idea 仅仅因为"不符合当前热点"或"不属于本学科范畴"而被顶级期刊扫地出门，最终躺在硬盘里吃灰。</p>
+        <p>这个栏目鼓励学者把被拒稿的<strong>"学术边角料"</strong>拿出来，用跨学科的视角重新包装，探讨那些被错杀的边缘理论的潜在价值。</p>
+        
+        <h3>📋 收稿范围</h3>
+        <ul>
+          <li>因"不符合期刊范围"被拒的跨学科研究</li>
+          <li>被主流学界忽视的历史文献整理</li>
+          <li>"生不逢时"的超前研究（当年被拒，现在看很有价值）</li>
+          <li>边缘学科的奠基性工作</li>
+        </ul>
+        
+        <h3>🎯 投稿建议</h3>
+        <ul>
+          <li>说明为什么这个研究被"错杀"</li>
+          <li>阐述跨学科价值或历史意义</li>
+          <li>附上原始拒稿信（加分项）</li>
+        </ul>
+      </div>
+      
+      <!-- 微塑料 -->
+      <div class="section-card">
+        <h2><span class="icon">🔬</span> 微塑料 <span class="en-name">Microplastics</span></h2>
+        <p class="tagline">"无孔不入、无处不在，看着烦人但你又无法忽略。"</p>
+        
+        <h3>📌 定位：极简学术与微小贡献 (Micro-Contributions)</h3>
+        <p>精准反讽学术圈深恶痛绝的<strong>"切香肠（Salami Slicing）"</strong>灌水行为。既然大家都在为了毕业和评职称把一篇文章拆成五篇水，不如把灌水合法化、极致化。</p>
+        <p>该栏目严格限制篇幅（<strong>不得超过一页半</strong>），剥离所有假大空的背景废话，只允许展示"一个图 + 一个极其微小的结论"。</p>
+        
+        <h3>📋 收稿范围</h3>
+        <ul>
+          <li>单一图表 + 简短结论的极简研究</li>
+          <li>对已有研究的微小改进或修正</li>
+          <li>技术细节的补充说明</li>
+          <li>有趣的观察记录（无需深入分析）</li>
+        </ul>
+        
+        <h3>🎯 投稿要求</h3>
+        <ul>
+          <li><strong>严格限制篇幅</strong>：不超过一页半</li>
+          <li><strong>必须包含</strong>：一个图/表 + 一个结论</li>
+          <li><strong>禁止</strong>：冗长的背景介绍、空洞的讨论</li>
+        </ul>
+      </div>
+      
+      <!-- 放射性废料 -->
+      <div class="section-card">
+        <h2><span class="icon">☢️</span> 放射性废料 <span class="en-name">Radioactive Waste</span></h2>
+        <p class="tagline">"极度危险，目前人类无法处理，只能封存起来交给未来。"</p>
+        
+        <h3>📌 定位：危险思想与未定论 (Dangerous Conjectures)</h3>
+        <p>专门收录那些逻辑自洽，但<strong>结论过于离经叛道、充满争议、甚至可能颠覆现有学科基础</strong>的假说。</p>
+        <p>它们在当前的范式下"有害"且无法被证实或证伪，但或许能在未来引发学术界的核聚变。</p>
+        
+        <h3>📋 收稿范围</h3>
+        <ul>
+          <li>挑战学科基础的大胆假说</li>
+          <li>逻辑自洽但缺乏实验验证的理论</li>
+          <li>可能引发伦理争议的"危险思想"</li>
+          <li>超前于时代的技术预言</li>
+        </ul>
+        
+        <h3>🎯 投稿建议</h3>
+        <ul>
+          <li>确保逻辑自洽，不是胡言乱语</li>
+          <li>说明为什么这个思想"危险"</li>
+          <li>讨论潜在影响（好的和坏的）</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- 审稿流程 -->
+    <div class="review-process">
+      <h2 class="chinese-serif">🔄 WASTE 审稿流程：从垃圾到资源</h2>
+      <p style="text-align: center; color: var(--color-charcoal-light); margin-bottom: 2rem;">
+        参考 SHIT Journal 的"化粪池评审系统"，WASTE 采用<strong>"垃圾处理厂评审机制"</strong>
+      </p>
+      
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h4>🗂️ 垃圾分类 Sorting</h4>
+          <p>初审：编辑判断投稿属于哪个栏目</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <h4>🧪 环评测试 Environmental Assessment</h4>
+          <p>同行评审：评估学术价值和"污染风险"</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <h4>♻️ 资源化处理 Processing</h4>
+          <p>修改：作者根据评审意见改进</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">4</div>
+          <h4>📦 封装存档 Landfill</h4>
+          <p>发表：分配 DOI，永久存档</p>
+        </div>
+      </div>
+      
+      <div style="margin-top: 2rem; padding: 1.5rem; background: #fff8e1; border-left: 4px solid var(--color-accent-gold);">
+        <strong>⏱️ 评审周期：</strong>7-14 个工作日（实际取决于主编当天喝了几杯咖啡、天气如何、以及月球相位）
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>Email: york255@163.com</p>
+          <p>GitHub: @YupenBob/waste-journal</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <p><a href="submission-guidelines.html">Submission Guidelines</a></p>
+          <p><a href="about.html">About</a></p>
+          <p><a href="https://github.com/YupenBob/waste-journal">GitHub Repository</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>License</h4>
+          <p>Code: MIT</p>
+          <p>Content: CC BY-NC-SA 4.0</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 WASTE Journal — York, Editor-in-Chief</p>
+        <p style="margin-top: 0.5rem;">"Conserve the Useless, Archive the Absurd."</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
